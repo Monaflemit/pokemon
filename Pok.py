@@ -13439,7 +13439,7 @@ with open('css.css') as f:
 st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
 
-st.title("Analyse des tier")
+st.title("Analyse des tiers")
 
 
 gen = st.number_input("Sélectionnez votre gen", min_value=1, max_value=9, step=1, value=9 )
