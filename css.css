@@ -1,0 +1,80 @@
+body {
+  background-color: black;
+}
+
+
+p {
+  text-decoration-color: red;
+}
+
+td:contains('Ice') {
+  text-decoration-color: blue;
+}
+
+p:contains('Ground') {
+  text-decoration-color: green;
+}
+
+p:contains('Fairy') {
+  text-decoration-color: purple;
+}
+
+p:contains('Rock') {
+  text-decoration-color: brown;
+}
+
+p:contains('Water') {
+  text-decoration-color: blue;
+}
+
+p:contains('Fighting') {
+  text-decoration-color: red;
+}
+
+p:contains('Flying') {
+  text-decoration-color: skyblue;
+}
+
+p:contains('Ghost') {
+  text-decoration-color: black;
+}
+
+p:contains('Fire') {
+  text-decoration-color: orange;
+}
+
+p:contains('Dark') {
+  text-decoration-color: darkgrey;
+}
+
+p:contains('Dragon') {
+  text-decoration-color: violet;
+}
+
+p:contains('Steel') {
+  text-decoration-color: silver;
+}
+
+p:contains('Bug') {
+  text-decoration-color: green;
+}
+
+p:contains('Electric') {
+  text-decoration-color: yellow;
+}
+
+p:contains('Psychic') {
+  text-decoration-color: pink;
+}
+
+p:contains('Grass') {
+  text-decoration-color: green;
+}
+
+p:contains('Poison') {
+  text-decoration-color: purple;
+}
+
+p:contains('Normal') {
+  text-decoration-color: grey;
+}
