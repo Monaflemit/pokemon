@@ -2,6 +2,36 @@ import streamlit as st
 from time import time,strftime
 
 
+#cd C:\Users\quewa\Documents\Pokémon\9
+import streamlit as st #streamlit run Pok.py
+
+st.set_option('deprecation.showPyplotGlobalUse', False)
+
+
+# Charger le contenu du fichier CSS
+with open('css.css') as f:
+    css = f.read()
+
+# Ajouter le contenu du fichier CSS à l'application Streamlit
+st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+
+
+st.title("Analyse des tiers")
+
+
+
+
+gen = st.number_input("Sélectionnez votre gen", min_value=1, max_value=9, step=1, value=9 )
+
+
+# Mettez à jour la session state avec la nouvelle valeur de gen
+st.session_state.gen = gen
+
+# Widget de sélection du mode
+tier = st.selectbox("Choisissez le tier", ["ou", "uu","lc","ru","doublesou","ubers","1v1"]) # index=0
+
+st.session_state.tier = tier
+
 
 #traduction
 @st.cache
@@ -12865,6 +12895,3105 @@ NosferaptiPoisonFlyingAttentionInfiltrationPV
 """
 
 
+moves="""FlamethrowerFireSpecialPower
+90Accuracy
+100%PP
+2410% chance to burn the target.
+Seismic TossFightingPhysicalPower
+—Accuracy
+100%PP
+32Does damage equal to the user's level.
+Sleep TalkNormalStatusAccuracy
+—PP
+16User must be asleep. Uses another known move.
+SporeGrassStatusAccuracy
+100%PP
+24Causes the target to fall asleep.
+AccelerockRockPhysicalPower
+40Accuracy
+100%PP
+32Usually goes first.
+Acid ArmorPoisonStatusAccuracy
+—PP
+32Raises the user's Defense by 2.
+AcrobaticsFlyingPhysicalPower
+55Accuracy
+100%PP
+24Power doubles if the user has no held item.
+AeroblastFlyingSpecialPower
+100Accuracy
+95%PP
+8High critical hit ratio.
+AgilityPsychicStatusAccuracy
+—PP
+48Raises the user's Speed by 2.
+Air SlashFlyingSpecialPower
+75Accuracy
+95%PP
+2430% chance to make the target flinch.
+Alluring VoiceFairySpecialPower
+80Accuracy
+100%PP
+16100% confuse target that had a stat rise this turn.
+Anchor ShotSteelPhysicalPower
+80Accuracy
+100%PP
+32Prevents the target from switching out.
+Apple AcidGrassSpecialPower
+80Accuracy
+100%PP
+16100% chance to lower the target's Sp. Def by 1.
+Aqua CutterWaterPhysicalPower
+70Accuracy
+100%PP
+32High critical hit ratio.
+Aqua StepWaterPhysicalPower
+80Accuracy
+100%PP
+16100% chance to raise the user's Speed by 1.
+Aqua TailWaterPhysicalPower
+90Accuracy
+90%PP
+16No additional effect.
+Armor CannonFireSpecialPower
+120Accuracy
+100%PP
+8Lowers the user's Defense and Sp. Def by 1.
+AromatherapyGrassStatusAccuracy
+—PP
+8Cures the user's party of all status conditions.
+Astral BarrageGhostSpecialPower
+120Accuracy
+100%PP
+8No additional effect. Hits adjacent foes.
+Attack OrderBugPhysicalPower
+90Accuracy
+100%PP
+24High critical hit ratio.
+Aura SphereFightingSpecialPower
+80Accuracy
+—PP
+32This move does not check accuracy.
+Aurora VeilIceStatusAccuracy
+—PP
+32For 5 turns, damage to allies halved. Snow only.
+AutotomizeSteelStatusAccuracy
+—PP
+24Raises the user's Speed by 2; user loses 100 kg.
+AvalancheIcePhysicalPower
+60Accuracy
+100%PP
+16Power doubles if user is damaged by the target.
+Baneful BunkerPoisonStatusAccuracy
+—PP
+16Protects from moves. Contact: poison.
+Barb BarragePoisonPhysicalPower
+60Accuracy
+100%PP
+1650% psn. 2x power if target already poisoned.
+Baton PassNormalStatusAccuracy
+—PP
+64User switches, passing stat changes and more.
+Beak BlastFlyingPhysicalPower
+100Accuracy
+100%PP
+24Burns on contact with the user before it moves.
+Behemoth BashSteelPhysicalPower
+100Accuracy
+100%PP
+8No additional effect.
+Behemoth BladeSteelPhysicalPower
+100Accuracy
+100%PP
+8No additional effect.
+Belly DrumNormalStatusAccuracy
+—PP
+16User loses 50% max HP. Maximizes Attack.
+Bitter BladeFirePhysicalPower
+90Accuracy
+100%PP
+16User recovers 50% of the damage dealt.
+Bitter MaliceGhostSpecialPower
+75Accuracy
+100%PP
+16100% chance to lower the target's Attack by 1.
+Blaze KickFirePhysicalPower
+85Accuracy
+90%PP
+16High critical hit ratio. 10% chance to burn.
+Bleakwind StormFlyingSpecialPower
+100Accuracy
+80%PP
+1630% to lower foe(s) Speed by 1. Rain: can't miss.
+BlizzardIceSpecialPower
+110Accuracy
+70%PP
+810% chance to freeze foe(s). Can't miss in Snow.
+Blood MoonNormalSpecialPower
+140Accuracy
+100%PP
+8Cannot be selected the turn after it's used.
+Blue FlareFireSpecialPower
+130Accuracy
+85%PP
+820% chance to burn the target.
+Body PressFightingPhysicalPower
+80Accuracy
+100%PP
+16Uses user's Def stat as Atk in damage calculation.
+Body SlamNormalPhysicalPower
+85Accuracy
+100%PP
+2430% chance to paralyze the target.
+Bolt BeakElectricPhysicalPower
+85Accuracy
+100%PP
+16Power doubles if user moves before the target.
+Bolt StrikeElectricPhysicalPower
+130Accuracy
+85%PP
+820% chance to paralyze the target.
+BonemerangGroundPhysicalPower
+50Accuracy
+90%PP
+16Hits 2 times in one turn.
+BoomburstNormalSpecialPower
+140Accuracy
+100%PP
+16No additional effect. Hits adjacent Pokemon.
+Brave BirdFlyingPhysicalPower
+120Accuracy
+100%PP
+24Has 33% recoil.
+Brick BreakFightingPhysicalPower
+75Accuracy
+100%PP
+24Destroys screens, unless the target is immune.
+Bug BuzzBugSpecialPower
+90Accuracy
+100%PP
+1610% chance to lower the target's Sp. Def by 1.
+Bulk UpFightingStatusAccuracy
+—PP
+32Raises the user's Attack and Defense by 1.
+Bullet PunchSteelPhysicalPower
+40Accuracy
+100%PP
+48Usually goes first.
+Calm MindPsychicStatusAccuracy
+—PP
+32Raises the user's Sp. Atk and Sp. Def by 1.
+Ceaseless EdgeDarkPhysicalPower
+65Accuracy
+90%PP
+24Sets a layer of Spikes on the opposing side.
+Chilly ReceptionIceStatusAccuracy
+—PP
+16Starts Snow. User switches out.
+ChloroblastGrassSpecialPower
+150Accuracy
+95%PP
+8User loses 50% max HP.
+Circle ThrowFightingPhysicalPower
+60Accuracy
+90%PP
+16Forces the target to switch to a random ally.
+Clanging ScalesDragonSpecialPower
+110Accuracy
+100%PP
+8Lowers the user's Defense by 1.
+Clangorous SoulDragonStatusAccuracy
+100%PP
+8User loses 33% of its max HP. +1 to all stats.
+Clear SmogPoisonSpecialPower
+50Accuracy
+—PP
+24Resets all of the target's stat stages to 0.
+Close CombatFightingPhysicalPower
+120Accuracy
+100%PP
+8Lowers the user's Defense and Sp. Def by 1.
+CoilPoisonStatusAccuracy
+—PP
+32Raises user's Attack, Defense, accuracy by 1.
+Collision CourseFightingPhysicalPower
+100Accuracy
+100%PP
+8Deals 1.3333x damage with supereffective hits.
+Core EnforcerDragonSpecialPower
+100Accuracy
+100%PP
+16Nullifies the foe(s) Ability if the foe(s) move first.
+Cotton GuardGrassStatusAccuracy
+—PP
+16Raises the user's Defense by 3.
+Court ChangeNormalStatusAccuracy
+100%PP
+16Swaps user's field effects with the opposing side.
+CrabhammerWaterPhysicalPower
+100Accuracy
+90%PP
+16High critical hit ratio.
+Cross ChopFightingPhysicalPower
+100Accuracy
+80%PP
+8High critical hit ratio.
+CrunchDarkPhysicalPower
+80Accuracy
+100%PP
+2420% chance to lower the target's Defense by 1.
+CurseGhostStatusAccuracy
+—PP
+16Curses if Ghost, else -1 Spe, +1 Atk, +1 Def.
+Darkest LariatDarkPhysicalPower
+85Accuracy
+100%PP
+16Ignores the target's stat stage changes.
+Dark PulseDarkSpecialPower
+80Accuracy
+100%PP
+2420% chance to make the target flinch.
+Dazzling GleamFairySpecialPower
+80Accuracy
+100%PP
+16No additional effect. Hits adjacent foes.
+DefogFlyingStatusAccuracy
+—PP
+24-1 evasion; clears terrain and hazards on both sides.
+Destiny BondGhostStatusAccuracy
+—PP
+8If an opponent knocks out the user, it also faints.
+DetectFightingStatusAccuracy
+—PP
+8Prevents moves from affecting the user this turn.
+Diamond StormRockPhysicalPower
+100Accuracy
+95%PP
+850% chance to raise user's Defense by 2.
+Dire ClawPoisonPhysicalPower
+80Accuracy
+100%PP
+2450% chance to sleep, poison, or paralyze target.
+DisableNormalStatusAccuracy
+100%PP
+32For 4 turns, disables the target's last move used.
+DischargeElectricSpecialPower
+80Accuracy
+100%PP
+2430% chance to paralyze adjacent Pokemon.
+Doom DesireSteelSpecialPower
+140Accuracy
+100%PP
+8Hits two turns after being used.
+Double-EdgeNormalPhysicalPower
+120Accuracy
+100%PP
+24Has 33% recoil.
+Double Iron BashSteelPhysicalPower
+60Accuracy
+100%PP
+8Hits twice. 30% chance to make the target flinch.
+Double ShockElectricPhysicalPower
+120Accuracy
+100%PP
+8User's Electric type: typeless; must be Electric.
+Draco MeteorDragonSpecialPower
+130Accuracy
+90%PP
+8Lowers the user's Sp. Atk by 2.
+Dragon AscentFlyingPhysicalPower
+120Accuracy
+100%PP
+8Lowers the user's Defense and Sp. Def by 1.
+Dragon ClawDragonPhysicalPower
+80Accuracy
+100%PP
+24No additional effect.
+Dragon DanceDragonStatusAccuracy
+—PP
+32Raises the user's Attack and Speed by 1.
+Dragon DartsDragonPhysicalPower
+50Accuracy
+100%PP
+16Hits twice. Doubles: Tries to hit each foe once.
+Dragon EnergyDragonSpecialPower
+150Accuracy
+100%PP
+8Less power as user's HP decreases. Hits foe(s).
+Dragon HammerDragonPhysicalPower
+90Accuracy
+100%PP
+24No additional effect.
+Dragon PulseDragonSpecialPower
+85Accuracy
+100%PP
+16No additional effect.
+Dragon TailDragonPhysicalPower
+60Accuracy
+90%PP
+16Forces the target to switch to a random ally.
+Draining KissFairySpecialPower
+50Accuracy
+100%PP
+16User recovers 75% of the damage dealt.
+Drain PunchFightingPhysicalPower
+75Accuracy
+100%PP
+16User recovers 50% of the damage dealt.
+Drill PeckFlyingPhysicalPower
+80Accuracy
+100%PP
+32No additional effect.
+Drill RunGroundPhysicalPower
+80Accuracy
+95%PP
+16High critical hit ratio.
+Drum BeatingGrassPhysicalPower
+80Accuracy
+100%PP
+16100% chance to lower the target's Speed by 1.
+Dynamax CannonDragonSpecialPower
+100Accuracy
+100%PP
+8No additional effect.
+Earth PowerGroundSpecialPower
+90Accuracy
+100%PP
+1610% chance to lower the target's Sp. Def by 1.
+EarthquakeGroundPhysicalPower
+100Accuracy
+100%PP
+16Hits adjacent Pokemon. Double damage on Dig.
+Eerie SpellPsychicSpecialPower
+80Accuracy
+100%PP
+8Removes 3 PP from the target's last move.
+Electro DriftElectricSpecialPower
+100Accuracy
+100%PP
+8Deals 1.3333x damage with supereffective hits.
+EncoreNormalStatusAccuracy
+100%PP
+8Target repeats its last move for its next 3 turns.
+EndeavorNormalPhysicalPower
+—Accuracy
+100%PP
+8Lowers the target's HP to the user's HP.
+Energy BallGrassSpecialPower
+90Accuracy
+100%PP
+1610% chance to lower the target's Sp. Def by 1.
+EruptionFireSpecialPower
+150Accuracy
+100%PP
+8Less power as user's HP decreases. Hits foe(s).
+Esper WingPsychicSpecialPower
+80Accuracy
+100%PP
+16100% chance to raise user Speed by 1. High crit.
+Expanding ForcePsychicSpecialPower
+80Accuracy
+100%PP
+16User on Psychic Terrain: 1.5x power, hits foes.
+ExplosionNormalPhysicalPower
+250Accuracy
+100%PP
+8Hits adjacent Pokemon. The user faints.
+ExtrasensoryPsychicSpecialPower
+80Accuracy
+100%PP
+3210% chance to make the target flinch.
+Extreme SpeedNormalPhysicalPower
+80Accuracy
+100%PP
+8Nearly always goes first.
+FacadeNormalPhysicalPower
+70Accuracy
+100%PP
+32Power doubles if user is burn/poison/paralyzed.
+Fake OutNormalPhysicalPower
+40Accuracy
+100%PP
+16Hits first. First turn out only. 100% flinch chance.
+False SurrenderDarkPhysicalPower
+80Accuracy
+—PP
+16This move does not check accuracy.
+Fickle BeamDragonSpecialPower
+80Accuracy
+100%PP
+8Has a 30% chance this move's power is doubled.
+Fiery DanceFireSpecialPower
+80Accuracy
+100%PP
+1650% chance to raise the user's Sp. Atk by 1.
+Fiery WrathDarkSpecialPower
+90Accuracy
+100%PP
+1620% chance to make the foe(s) flinch.
+Fillet AwayNormalStatusAccuracy
+—PP
+16+2 Attack, Sp. Atk, Speed for 1/2 user's max HP.
+Fire BlastFireSpecialPower
+110Accuracy
+85%PP
+810% chance to burn the target.
+Fire FangFirePhysicalPower
+65Accuracy
+95%PP
+2410% chance to burn. 10% chance to flinch.
+Fire LashFirePhysicalPower
+80Accuracy
+100%PP
+24100% chance to lower the target's Defense by 1.
+Fire PunchFirePhysicalPower
+75Accuracy
+100%PP
+2410% chance to burn the target.
+First ImpressionBugPhysicalPower
+90Accuracy
+100%PP
+16Hits first. First turn out only.
+Fishious RendWaterPhysicalPower
+85Accuracy
+100%PP
+16Power doubles if user moves before the target.
+Flame ChargeFirePhysicalPower
+50Accuracy
+100%PP
+32100% chance to raise the user's Speed by 1.
+FlamethrowerFireSpecialPower
+90Accuracy
+100%PP
+2410% chance to burn the target.
+Flare BlitzFirePhysicalPower
+120Accuracy
+100%PP
+24Has 33% recoil. 10% chance to burn. Thaws user.
+Flash CannonSteelSpecialPower
+80Accuracy
+100%PP
+1610% chance to lower the target's Sp. Def by 1.
+Fleur CannonFairySpecialPower
+130Accuracy
+90%PP
+8Lowers the user's Sp. Atk by 2.
+Flip TurnWaterPhysicalPower
+60Accuracy
+100%PP
+32User switches out after damaging the target.
+Flower TrickGrassPhysicalPower
+70Accuracy
+—PP
+16Always results in a critical hit; no accuracy check.
+Focus BlastFightingSpecialPower
+120Accuracy
+70%PP
+810% chance to lower the target's Sp. Def by 1.
+Focus PunchFightingPhysicalPower
+150Accuracy
+100%PP
+32Fails if the user takes damage before it hits.
+Foul PlayDarkPhysicalPower
+95Accuracy
+100%PP
+24Uses target's Attack stat in damage calculation.
+Freeze-DryIceSpecialPower
+70Accuracy
+100%PP
+3210% chance to freeze. Super effective on Water.
+Freezing GlarePsychicSpecialPower
+90Accuracy
+100%PP
+1610% chance to freeze the target.
+FrustrationNormalPhysicalPower
+—Accuracy
+100%PP
+32Max 102 power at minimum Happiness.
+Fusion BoltElectricPhysicalPower
+100Accuracy
+100%PP
+8Power doubles if used after Fusion Flare this turn.
+Fusion FlareFireSpecialPower
+100Accuracy
+100%PP
+8Power doubles if used after Fusion Bolt this turn.
+Future SightPsychicSpecialPower
+120Accuracy
+100%PP
+16Hits two turns after being used.
+Gear GrindSteelPhysicalPower
+50Accuracy
+85%PP
+24Hits 2 times in one turn.
+GeomancyFairyStatusAccuracy
+—PP
+16Charges, then raises SpA, SpD, Spe by 2 turn 2.
+Giga DrainGrassSpecialPower
+75Accuracy
+100%PP
+16User recovers 50% of the damage dealt.
+Gigaton HammerSteelPhysicalPower
+160Accuracy
+100%PP
+8Cannot be selected the turn after it's used.
+Glacial LanceIcePhysicalPower
+120Accuracy
+100%PP
+8No additional effect. Hits adjacent foes.
+Glaive RushDragonPhysicalPower
+120Accuracy
+100%PP
+8User takes sure-hit 2x damage until its next turn.
+GlareNormalStatusAccuracy
+100%PP
+48Paralyzes the target.
+Grass KnotGrassSpecialPower
+—Accuracy
+100%PP
+32More power the heavier the target.
+Grav AppleGrassPhysicalPower
+80Accuracy
+100%PP
+16Target: 100% -1 Def. During Gravity: 1.5x power.
+Gunk ShotPoisonPhysicalPower
+120Accuracy
+80%PP
+830% chance to poison the target.
+Hammer ArmFightingPhysicalPower
+100Accuracy
+90%PP
+16Lowers the user's Speed by 1.
+HazeIceStatusAccuracy
+—PP
+48Eliminates all stat changes.
+Head ChargeNormalPhysicalPower
+120Accuracy
+100%PP
+24Has 1/4 recoil.
+Headlong RushGroundPhysicalPower
+120Accuracy
+100%PP
+8Lowers the user's Defense and Sp. Def by 1.
+Head SmashRockPhysicalPower
+150Accuracy
+80%PP
+8Has 1/2 recoil.
+Heal BellNormalStatusAccuracy
+—PP
+8Cures the user's party of all status conditions.
+Healing WishPsychicStatusAccuracy
+—PP
+16User faints. Next hurt Pokemon is fully healed.
+Heal OrderBugStatusAccuracy
+—PP
+16Heals the user by 50% of its max HP.
+Heart SwapPsychicStatusAccuracy
+—PP
+16Swaps all stat changes with target.
+Heat WaveFireSpecialPower
+95Accuracy
+90%PP
+1610% chance to burn the foe(s).
+High HorsepowerGroundPhysicalPower
+95Accuracy
+95%PP
+16No additional effect.
+High Jump KickFightingPhysicalPower
+130Accuracy
+90%PP
+16User is hurt by 50% of its max HP if it misses.
+Hone ClawsDarkStatusAccuracy
+—PP
+24Raises the user's Attack and accuracy by 1.
+Horn LeechGrassPhysicalPower
+75Accuracy
+100%PP
+16User recovers 50% of the damage dealt.
+HurricaneFlyingSpecialPower
+110Accuracy
+70%PP
+1630% chance to confuse target. Can't miss in rain.
+Hydro PumpWaterSpecialPower
+110Accuracy
+80%PP
+8No additional effect.
+Hydro SteamWaterSpecialPower
+80Accuracy
+100%PP
+24During Sunny Day: 1.5x damage instead of half.
+Hyper DrillNormalPhysicalPower
+100Accuracy
+100%PP
+8Bypasses protection without breaking it.
+Hyper VoiceNormalSpecialPower
+90Accuracy
+100%PP
+16No additional effect. Hits adjacent foes.
+Ice BeamIceSpecialPower
+90Accuracy
+100%PP
+1610% chance to freeze the target.
+Ice FangIcePhysicalPower
+65Accuracy
+95%PP
+2410% chance to freeze. 10% chance to flinch.
+Ice HammerIcePhysicalPower
+100Accuracy
+90%PP
+16Lowers the user's Speed by 1.
+Ice ShardIcePhysicalPower
+40Accuracy
+100%PP
+48Usually goes first.
+Ice SpinnerIcePhysicalPower
+80Accuracy
+100%PP
+24Ends the effects of terrain.
+Icicle SpearIcePhysicalPower
+25Accuracy
+100%PP
+48Hits 2-5 times in one turn.
+Infernal ParadeGhostSpecialPower
+60Accuracy
+100%PP
+2430% burn. 2x power if target is already statused.
+InfestationBugSpecialPower
+20Accuracy
+100%PP
+32Traps and damages the target for 4-5 turns.
+Iron HeadSteelPhysicalPower
+80Accuracy
+100%PP
+2430% chance to make the target flinch.
+Ivy CudgelGrassPhysicalPower
+100Accuracy
+100%PP
+16High critical hit ratio. Type depends on user's form.
+JudgmentNormalSpecialPower
+100Accuracy
+100%PP
+16Type varies based on the held Plate.
+King's ShieldSteelStatusAccuracy
+—PP
+16Protects from damaging attacks. Contact: -1 Atk.
+Knock OffDarkPhysicalPower
+65Accuracy
+100%PP
+321.5x damage if foe holds an item. Removes item.
+Kowtow CleaveDarkPhysicalPower
+85Accuracy
+—PP
+16This move does not check accuracy.
+Lash OutDarkPhysicalPower
+75Accuracy
+100%PP
+82x power if the user had a stat lowered this turn.
+Last ResortNormalPhysicalPower
+140Accuracy
+100%PP
+8Fails unless each known move has been used.
+Last RespectsGhostPhysicalPower
+50Accuracy
+100%PP
+16+50 power for each time a party member fainted.
+Lava PlumeFireSpecialPower
+80Accuracy
+100%PP
+2430% chance to burn adjacent Pokemon.
+Leaf BladeGrassPhysicalPower
+90Accuracy
+100%PP
+24High critical hit ratio.
+Leaf StormGrassSpecialPower
+130Accuracy
+90%PP
+8Lowers the user's Sp. Atk by 2.
+Leech LifeBugPhysicalPower
+80Accuracy
+100%PP
+16User recovers 50% of the damage dealt.
+Leech SeedGrassStatusAccuracy
+90%PP
+161/8 of target's HP is restored to user every turn.
+Light of RuinFairySpecialPower
+140Accuracy
+90%PP
+8Has 1/2 recoil.
+Light ScreenPsychicStatusAccuracy
+—PP
+48For 5 turns, special damage to allies is halved.
+LiquidationWaterPhysicalPower
+85Accuracy
+100%PP
+1620% chance to lower the target's Defense by 1.
+Lovely KissNormalStatusAccuracy
+75%PP
+16Causes the target to fall asleep.
+Low KickFightingPhysicalPower
+—Accuracy
+100%PP
+32More power the heavier the target.
+Lumina CrashPsychicSpecialPower
+80Accuracy
+100%PP
+16100% chance to lower the target's Sp. Def by 2.
+Lunar DancePsychicStatusAccuracy
+—PP
+16User faints. Next hurt Pkmn is cured, max HP/PP.
+LungeBugPhysicalPower
+80Accuracy
+100%PP
+24100% chance to lower the target's Attack by 1.
+Luster PurgePsychicSpecialPower
+95Accuracy
+100%PP
+850% chance to lower the target's Sp. Def by 1.
+Mach PunchFightingPhysicalPower
+40Accuracy
+100%PP
+48Usually goes first.
+Magic CoatPsychicStatusAccuracy
+—PP
+24Bounces back certain non-damaging moves.
+Magma StormFireSpecialPower
+100Accuracy
+75%PP
+8Traps and damages the target for 4-5 turns.
+Make It RainSteelSpecialPower
+120Accuracy
+100%PP
+8Lowers the user's Sp. Atk by 1. Hits foe(s).
+Malignant ChainPoisonSpecialPower
+100Accuracy
+100%PP
+850% chance to badly poison the target.
+Matcha GotchaGrassSpecialPower
+80Accuracy
+90%PP
+2420% burn. Recovers 50% dmg dealt. Thaws foe(s).
+MegahornBugPhysicalPower
+120Accuracy
+85%PP
+16No additional effect.
+MementoDarkStatusAccuracy
+100%PP
+16Lowers target's Attack, Sp. Atk by 2. User faints.
+Meteor MashSteelPhysicalPower
+90Accuracy
+90%PP
+1620% chance to raise the user's Attack by 1.
+Mighty CleaveRockPhysicalPower
+95Accuracy
+100%PP
+8Bypasses protection without breaking it.
+Milk DrinkNormalStatusAccuracy
+—PP
+8Heals the user by 50% of its max HP.
+Mind BlownFireSpecialPower
+150Accuracy
+100%PP
+8User loses 50% max HP. Hits adjacent Pokemon.
+Mist BallPsychicSpecialPower
+95Accuracy
+100%PP
+850% chance to lower the target's Sp. Atk by 1.
+MoonblastFairySpecialPower
+95Accuracy
+100%PP
+2430% chance to lower the target's Sp. Atk by 1.
+Moongeist BeamGhostSpecialPower
+100Accuracy
+100%PP
+8Ignores the Abilities of other Pokemon.
+MoonlightFairyStatusAccuracy
+—PP
+8Heals the user by a weather-dependent amount.
+Morning SunNormalStatusAccuracy
+—PP
+8Heals the user by a weather-dependent amount.
+Mortal SpinPoisonPhysicalPower
+30Accuracy
+100%PP
+24Poisons foes, frees user from hazards/bind/leech.
+Mountain GaleIcePhysicalPower
+100Accuracy
+85%PP
+1630% chance to make the target flinch.
+Multi-AttackNormalPhysicalPower
+120Accuracy
+100%PP
+16Type varies based on the held Memory.
+Mystical PowerPsychicSpecialPower
+70Accuracy
+90%PP
+16100% chance to raise the user's Sp. Atk by 1.
+Nasty PlotDarkStatusAccuracy
+—PP
+32Raises the user's Sp. Atk by 2.
+Nature's MadnessFairySpecialPower
+—Accuracy
+90%PP
+16Does damage equal to 1/2 target's current HP.
+Night ShadeGhostSpecialPower
+—Accuracy
+100%PP
+24Does damage equal to the user's level.
+No RetreatFightingStatusAccuracy
+—PP
+8Raises all stats by 1 (not acc/eva). Traps user.
+NuzzleElectricPhysicalPower
+20Accuracy
+100%PP
+32100% chance to paralyze the target.
+Oblivion WingFlyingSpecialPower
+80Accuracy
+100%PP
+16User recovers 75% of the damage dealt.
+ObstructDarkStatusAccuracy
+100%PP
+16Protects from damaging attacks. Contact: -2 Def.
+Order UpDragonPhysicalPower
+80Accuracy
+100%PP
+16Curly|Droopy|Stretchy eaten: +1 Atk|Def|Spe.
+Origin PulseWaterSpecialPower
+110Accuracy
+85%PP
+16No additional effect. Hits adjacent foes.
+OverdriveElectricSpecialPower
+80Accuracy
+100%PP
+16No additional effect. Hits foe(s).
+OverheatFireSpecialPower
+130Accuracy
+90%PP
+8Lowers the user's Sp. Atk by 2.
+Pain SplitNormalStatusAccuracy
+—PP
+32Shares HP of user and target equally.
+Parting ShotDarkStatusAccuracy
+100%PP
+32Lowers target's Atk, Sp. Atk by 1. User switches.
+Perish SongNormalStatusAccuracy
+—PP
+8All active Pokemon will faint in 3 turns.
+Petal BlizzardGrassPhysicalPower
+90Accuracy
+100%PP
+24No additional effect. Hits adjacent Pokemon.
+Petal DanceGrassSpecialPower
+120Accuracy
+100%PP
+16Lasts 2-3 turns. Confuses the user afterwards.
+Photon GeyserPsychicSpecialPower
+100Accuracy
+100%PP
+8Physical if user's Atk > Sp. Atk. Ignores Abilities.
+Plasma FistsElectricPhysicalPower
+100Accuracy
+100%PP
+24Normal moves become Electric type this turn.
+Play RoughFairyPhysicalPower
+90Accuracy
+90%PP
+1610% chance to lower the target's Attack by 1.
+Poison JabPoisonPhysicalPower
+80Accuracy
+100%PP
+3230% chance to poison the target.
+PoltergeistGhostPhysicalPower
+110Accuracy
+90%PP
+8Fails if the target has no held item.
+Population BombNormalPhysicalPower
+20Accuracy
+90%PP
+16Hits 10 times. Each hit can miss.
+Power GemRockSpecialPower
+80Accuracy
+100%PP
+32No additional effect.
+Power-Up PunchFightingPhysicalPower
+40Accuracy
+100%PP
+32100% chance to raise the user's Attack by 1.
+Power WhipGrassPhysicalPower
+120Accuracy
+85%PP
+16No additional effect.
+Precipice BladesGroundPhysicalPower
+120Accuracy
+85%PP
+16No additional effect. Hits adjacent foes.
+ProtectNormalStatusAccuracy
+—PP
+16Prevents moves from affecting the user this turn.
+PsybladePsychicPhysicalPower
+80Accuracy
+100%PP
+24During Electric Terrain: 1.5x power.
+PsychicPsychicSpecialPower
+90Accuracy
+100%PP
+1610% chance to lower the target's Sp. Def by 1.
+Psychic FangsPsychicPhysicalPower
+85Accuracy
+100%PP
+16Destroys screens, unless the target is immune.
+Psychic NoisePsychicSpecialPower
+75Accuracy
+100%PP
+16For 2 turns, the target is prevented from healing.
+Psycho BoostPsychicSpecialPower
+140Accuracy
+90%PP
+8Lowers the user's Sp. Atk by 2.
+Psycho CutPsychicPhysicalPower
+70Accuracy
+100%PP
+32High critical hit ratio.
+Psyshield BashPsychicPhysicalPower
+70Accuracy
+90%PP
+16100% chance to raise the user's Defense by 1.
+PsyshockPsychicSpecialPower
+80Accuracy
+100%PP
+16Damages target based on Defense, not Sp. Def.
+PsystrikePsychicSpecialPower
+100Accuracy
+100%PP
+16Damages target based on Defense, not Sp. Def.
+PursuitDarkPhysicalPower
+40Accuracy
+100%PP
+32If a foe is switching out, hits it at 2x power.
+Pyro BallFirePhysicalPower
+120Accuracy
+90%PP
+810% chance to burn the target. Thaws user.
+Quick AttackNormalPhysicalPower
+40Accuracy
+100%PP
+48Usually goes first.
+Quiver DanceBugStatusAccuracy
+—PP
+32Raises the user's Sp. Atk, Sp. Def, Speed by 1.
+Rage FistGhostPhysicalPower
+50Accuracy
+100%PP
+16+50 power for each time user was hit. Max 6 hits.
+Raging BullNormalPhysicalPower
+90Accuracy
+100%PP
+16Destroys screens. Type depends on user's form.
+Raging FuryFirePhysicalPower
+120Accuracy
+100%PP
+16Lasts 2-3 turns. Confuses the user afterwards.
+Rapid SpinNormalPhysicalPower
+50Accuracy
+100%PP
+64Free user from hazards/bind/Leech Seed; +1 Spe.
+Razor ShellWaterPhysicalPower
+75Accuracy
+95%PP
+1650% chance to lower the target's Defense by 1.
+RecoverNormalStatusAccuracy
+—PP
+8Heals the user by 50% of its max HP.
+ReflectPsychicStatusAccuracy
+—PP
+32For 5 turns, physical damage to allies is halved.
+Reflect TypeNormalStatusAccuracy
+—PP
+24User becomes the same type as the target.
+RestPsychicStatusAccuracy
+—PP
+8User sleeps 2 turns and restores HP and status.
+ReturnNormalPhysicalPower
+—Accuracy
+100%PP
+32Max 102 power at maximum Happiness.
+Revelation DanceNormalSpecialPower
+90Accuracy
+100%PP
+24Type varies based on the user's primary type.
+RoarNormalStatusAccuracy
+—PP
+32Forces the target to switch to a random ally.
+Rock BlastRockPhysicalPower
+25Accuracy
+90%PP
+16Hits 2-5 times in one turn.
+Rock PolishRockStatusAccuracy
+—PP
+32Raises the user's Speed by 2.
+Rock SlideRockPhysicalPower
+75Accuracy
+90%PP
+1630% chance to make the foe(s) flinch.
+RoostFlyingStatusAccuracy
+—PP
+8Heals 50% HP. Flying-type removed 'til turn ends.
+RuinationDarkSpecialPower
+—Accuracy
+90%PP
+16Does damage equal to 1/2 target's current HP.
+Sacred FireFirePhysicalPower
+100Accuracy
+95%PP
+850% chance to burn the target. Thaws user.
+Sacred SwordFightingPhysicalPower
+90Accuracy
+100%PP
+24Ignores the target's stat stage changes.
+Salt CureRockPhysicalPower
+40Accuracy
+100%PP
+24Deals 1/8 max HP each turn; 1/4 on Steel, Water.
+Sandsear StormGroundSpecialPower
+100Accuracy
+80%PP
+1620% chance to burn foe(s). Can't miss in rain.
+ScaldWaterSpecialPower
+80Accuracy
+100%PP
+2430% chance to burn the target. Thaws target.
+Scorching SandsGroundSpecialPower
+70Accuracy
+100%PP
+1630% chance to burn the target. Thaws target.
+Searing ShotFireSpecialPower
+100Accuracy
+100%PP
+830% chance to burn adjacent Pokemon.
+Secret SwordFightingSpecialPower
+85Accuracy
+100%PP
+16Damages target based on Defense, not Sp. Def.
+Seed BombGrassPhysicalPower
+80Accuracy
+100%PP
+24No additional effect.
+Seed FlareGrassSpecialPower
+120Accuracy
+85%PP
+840% chance to lower the target's Sp. Def by 2.
+Seismic TossFightingPhysicalPower
+—Accuracy
+100%PP
+32Does damage equal to the user's level.
+Shadow BallGhostSpecialPower
+80Accuracy
+100%PP
+2420% chance to lower the target's Sp. Def by 1.
+Shadow BoneGhostPhysicalPower
+85Accuracy
+100%PP
+1620% chance to lower the target's Defense by 1.
+Shadow ClawGhostPhysicalPower
+70Accuracy
+100%PP
+24High critical hit ratio.
+Shadow SneakGhostPhysicalPower
+40Accuracy
+100%PP
+48Usually goes first.
+Shed TailNormalStatusAccuracy
+—PP
+16User takes 1/2 its max HP to pass a substitute.
+Shell Side ArmPoisonSpecialPower
+90Accuracy
+100%PP
+1620% psn. Physical+contact if it would be stronger.
+Shell SmashNormalStatusAccuracy
+—PP
+24Lowers Def, SpD by 1; raises Atk, SpA, Spe by 2.
+Shift GearSteelStatusAccuracy
+—PP
+16Raises the user's Speed by 2 and Attack by 1.
+Shore UpGroundStatusAccuracy
+—PP
+8User restores 1/2 its max HP; 2/3 in Sandstorm.
+Signal BeamBugSpecialPower
+75Accuracy
+100%PP
+2410% chance to confuse the target.
+Silk TrapBugStatusAccuracy
+—PP
+16Protects from damaging attacks. Contact: -1 Spe.
+Slack OffNormalStatusAccuracy
+—PP
+8Heals the user by 50% of its max HP.
+Sleep PowderGrassStatusAccuracy
+75%PP
+24Causes the target to fall asleep.
+Sleep TalkNormalStatusAccuracy
+—PP
+16User must be asleep. Uses another known move.
+Sludge BombPoisonSpecialPower
+90Accuracy
+100%PP
+1630% chance to poison the target.
+Sludge WavePoisonSpecialPower
+95Accuracy
+100%PP
+1610% chance to poison adjacent Pokemon.
+Snipe ShotWaterSpecialPower
+80Accuracy
+100%PP
+24High critical hit ratio. Cannot be redirected.
+Soft-BoiledNormalStatusAccuracy
+—PP
+8Heals the user by 50% of its max HP.
+Spacial RendDragonSpecialPower
+100Accuracy
+95%PP
+8High critical hit ratio.
+Sparkling AriaWaterSpecialPower
+90Accuracy
+100%PP
+16The target is cured of its burn.
+Spectral ThiefGhostPhysicalPower
+90Accuracy
+100%PP
+16Steals target's boosts before dealing damage.
+SpikesGroundStatusAccuracy
+—PP
+32Hurts grounded foes on switch-in. Max 3 layers.
+Spiky ShieldGrassStatusAccuracy
+—PP
+16Protects from moves. Contact: loses 1/8 max HP.
+Spin OutSteelPhysicalPower
+100Accuracy
+100%PP
+8Lowers the user's Speed by 2.
+Spirit BreakFairyPhysicalPower
+75Accuracy
+100%PP
+24100% chance to lower the target's Sp. Atk by 1.
+Spirit ShackleGhostPhysicalPower
+80Accuracy
+100%PP
+16Prevents the target from switching out.
+SporeGrassStatusAccuracy
+100%PP
+24Causes the target to fall asleep.
+Springtide StormFairySpecialPower
+100Accuracy
+80%PP
+830% chance to lower the foe(s) Attack by 1.
+Stealth RockRockStatusAccuracy
+—PP
+32Hurts foes on switch-in. Factors Rock weakness.
+Steam EruptionWaterSpecialPower
+110Accuracy
+95%PP
+830% chance to burn the target. Thaws target.
+Steel BeamSteelSpecialPower
+140Accuracy
+95%PP
+8User loses 50% max HP.
+Steel RollerSteelPhysicalPower
+130Accuracy
+100%PP
+8Fails if there is no terrain active. Ends the terrain.
+Sticky WebBugStatusAccuracy
+—PP
+32Lowers Speed of grounded foes by 1 on switch-in.
+Stone AxeRockPhysicalPower
+65Accuracy
+90%PP
+24Sets Stealth Rock on the target's side.
+Stone EdgeRockPhysicalPower
+100Accuracy
+80%PP
+8High critical hit ratio.
+Stored PowerPsychicSpecialPower
+20Accuracy
+100%PP
+16+ 20 power for each of the user's stat boosts.
+Storm ThrowFightingPhysicalPower
+60Accuracy
+100%PP
+16Always results in a critical hit.
+Strange SteamFairySpecialPower
+90Accuracy
+95%PP
+1620% chance to confuse the target.
+Strength SapGrassStatusAccuracy
+100%PP
+16User heals HP=target's Atk stat. Lowers Atk by 1.
+SubstituteNormalStatusAccuracy
+—PP
+16User takes 1/4 its max HP to put in a substitute.
+Sucker PunchDarkPhysicalPower
+70Accuracy
+100%PP
+8Usually goes first. Fails if target is not attacking.
+Sunsteel StrikeSteelPhysicalPower
+100Accuracy
+100%PP
+8Ignores the Abilities of other Pokemon.
+Supercell SlamElectricPhysicalPower
+100Accuracy
+95%PP
+24User is hurt by 50% of its max HP if it misses.
+Super FangNormalPhysicalPower
+—Accuracy
+90%PP
+16Does damage equal to 1/2 target's current HP.
+SuperpowerFightingPhysicalPower
+120Accuracy
+100%PP
+8Lowers the user's Attack and Defense by 1.
+SurfWaterSpecialPower
+90Accuracy
+100%PP
+24Hits adjacent Pokemon. Double damage on Dive.
+Surging StrikesWaterPhysicalPower
+25Accuracy
+100%PP
+8Always results in a critical hit. Hits 3 times.
+SwitcherooDarkStatusAccuracy
+100%PP
+16User switches its held item with the target's.
+Swords DanceNormalStatusAccuracy
+—PP
+32Raises the user's Attack by 2.
+SynthesisGrassStatusAccuracy
+—PP
+8Heals the user by a weather-dependent amount.
+Tail GlowBugStatusAccuracy
+—PP
+32Raises the user's Sp. Atk by 3.
+Tail SlapNormalPhysicalPower
+25Accuracy
+85%PP
+16Hits 2-5 times in one turn.
+TailwindFlyingStatusAccuracy
+—PP
+24For 4 turns, allies' Speed is doubled.
+TauntDarkStatusAccuracy
+100%PP
+32Target can't use status moves its next 3 turns.
+TeleportPsychicStatusAccuracy
+—PP
+32User switches out.
+Temper FlareFirePhysicalPower
+75Accuracy
+100%PP
+16Power doubles if the user's last move failed.
+Tera BlastNormalSpecialPower
+80Accuracy
+100%PP
+16If Terastallized: Phys. if Atk > SpA, type = Tera.
+Thousand ArrowsGroundPhysicalPower
+90Accuracy
+100%PP
+16Grounds adjacent foes. First hit neutral on Flying.
+Thousand WavesGroundPhysicalPower
+90Accuracy
+100%PP
+16Hits adjacent foes. Prevents them from switching.
+Throat ChopDarkPhysicalPower
+80Accuracy
+100%PP
+24For 2 turns, the target cannot use sound moves.
+ThunderElectricSpecialPower
+110Accuracy
+70%PP
+1630% chance to paralyze. Can't miss in rain.
+ThunderboltElectricSpecialPower
+90Accuracy
+100%PP
+2410% chance to paralyze the target.
+Thunder CageElectricSpecialPower
+80Accuracy
+90%PP
+24Traps and damages the target for 4-5 turns.
+Thunderous KickFightingPhysicalPower
+90Accuracy
+100%PP
+16100% chance to lower the target's Defense by 1.
+Thunder PunchElectricPhysicalPower
+75Accuracy
+100%PP
+2410% chance to paralyze the target.
+Thunder WaveElectricStatusAccuracy
+90%PP
+32Paralyzes the target.
+Tidy UpNormalStatusAccuracy
+—PP
+16User +1 Atk, Spe. Clears all substitutes/hazards.
+Torch SongFireSpecialPower
+80Accuracy
+100%PP
+16100% chance to raise the user's Sp. Atk by 1.
+ToxicPoisonStatusAccuracy
+90%PP
+16Badly poisons the target. Poison types can't miss.
+Toxic SpikesPoisonStatusAccuracy
+—PP
+32Poisons grounded foes on switch-in. Max 2 layers.
+TrailblazeGrassPhysicalPower
+50Accuracy
+100%PP
+32100% chance to raise the user's Speed by 1.
+TransformNormalStatusAccuracy
+—PP
+16Copies target's stats, moves, types, and Ability.
+Tri AttackNormalSpecialPower
+80Accuracy
+100%PP
+1620% chance to paralyze or burn or freeze target.
+TrickPsychicStatusAccuracy
+100%PP
+16User switches its held item with the target's.
+Trick RoomPsychicStatusAccuracy
+—PP
+8Goes last. For 5 turns, turn order is reversed.
+Triple ArrowsFightingPhysicalPower
+90Accuracy
+100%PP
+16High crit. Target: 50% -1 Defense, 30% flinch.
+Triple AxelIcePhysicalPower
+20Accuracy
+90%PP
+16Hits 3 times. Each hit can miss, but power rises.
+Triple DiveWaterPhysicalPower
+30Accuracy
+95%PP
+16Hits 3 times.
+Twin BeamPsychicSpecialPower
+40Accuracy
+100%PP
+16Hits 2 times in one turn.
+U-turnBugPhysicalPower
+70Accuracy
+100%PP
+32User switches out after damaging the target.
+Victory DanceFightingStatusAccuracy
+—PP
+16Raises the user's Attack, Defense, Speed by 1.
+Volt SwitchElectricSpecialPower
+70Accuracy
+100%PP
+32User switches out after damaging the target.
+Volt TackleElectricPhysicalPower
+120Accuracy
+100%PP
+24Has 33% recoil. 10% chance to paralyze target.
+WaterfallWaterPhysicalPower
+80Accuracy
+100%PP
+2420% chance to make the target flinch.
+Water ShurikenWaterSpecialPower
+15Accuracy
+100%PP
+32Usually goes first. Hits 2-5 times in one turn.
+Water SpoutWaterSpecialPower
+150Accuracy
+100%PP
+8Less power as user's HP decreases. Hits foe(s).
+Wave CrashWaterPhysicalPower
+120Accuracy
+100%PP
+16Has 33% recoil.
+Weather BallNormalSpecialPower
+50Accuracy
+100%PP
+16Power doubles and type varies in each weather.
+WhirlwindNormalStatusAccuracy
+—PP
+32Forces the target to switch to a random ally.
+Wicked BlowDarkPhysicalPower
+75Accuracy
+100%PP
+8Always results in a critical hit.
+Wildbolt StormElectricSpecialPower
+100Accuracy
+80%PP
+1620% chance to paralyze foe(s). Rain: can't miss.
+Wild ChargeElectricPhysicalPower
+90Accuracy
+100%PP
+24Has 1/4 recoil.
+Will-O-WispFireStatusAccuracy
+85%PP
+24Burns the target.
+WishNormalStatusAccuracy
+—PP
+16Next turn, 50% of the user's max HP is restored.
+Wood HammerGrassPhysicalPower
+120Accuracy
+100%PP
+24Has 33% recoil.
+X-ScissorBugPhysicalPower
+80Accuracy
+100%PP
+24No additional effect.
+YawnNormalStatusAccuracy
+—PP
+16Puts the target to sleep after 1 turn.
+Zen HeadbuttPsychicPhysicalPower
+80Accuracy
+90%PP
+2420% chance to make the target flinch.
+Zing ZapElectricPhysicalPower
+80Accuracy
+100%PP
+1630% chance to make the target flinch.
+CaptivateNormalStatusAccuracy
+100%PP
+32Lowers the foe(s) Sp. Atk by 2 if opposite gender.
+False SwipeNormalPhysicalPower
+40Accuracy
+100%PP
+64Always leaves the target with at least 1 HP.
+Fury SwipesNormalPhysicalPower
+18Accuracy
+80%PP
+24Hits 2-5 times in one turn.
+Mean LookNormalStatusAccuracy
+—PP
+8Prevents the target from switching out.
+Odor SleuthNormalStatusAccuracy
+—PP
+64Fighting, Normal hit Ghost. Evasiveness ignored.
+SketchNormalStatusAccuracy
+—PP
+1Permanently copies the last move target used.
+AbsorbGrassSpecialPower
+20Accuracy
+100%PP
+40User recovers 50% of the damage dealt.
+AcidPoisonSpecialPower
+40Accuracy
+100%PP
+4810% chance to lower the foe(s) Sp. Def by 1.
+Acid SprayPoisonSpecialPower
+40Accuracy
+100%PP
+32100% chance to lower the target's Sp. Def by 2.
+AcupressureNormalStatusAccuracy
+—PP
+48Raises a random stat of the user or an ally by 2.
+Aerial AceFlyingPhysicalPower
+60Accuracy
+—PP
+32This move does not check accuracy.
+After YouNormalStatusAccuracy
+—PP
+24The target makes its move right after the user.
+Air CutterFlyingSpecialPower
+60Accuracy
+95%PP
+40High critical hit ratio. Hits adjacent foes.
+Ally SwitchPsychicStatusAccuracy
+—PP
+24User and ally swap positions; using again can fail.
+AmnesiaPsychicStatusAccuracy
+—PP
+32Raises the user's Sp. Def by 2.
+Ancient PowerRockSpecialPower
+60Accuracy
+100%PP
+810% chance to raise all stats by 1 (not acc/eva).
+Aqua JetWaterPhysicalPower
+40Accuracy
+100%PP
+32Usually goes first.
+Aqua RingWaterStatusAccuracy
+—PP
+32User recovers 1/16 max HP per turn.
+Arm ThrustFightingPhysicalPower
+15Accuracy
+100%PP
+32Hits 2-5 times in one turn.
+Aromatic MistFairyStatusAccuracy
+—PP
+32Raises an ally's Sp. Def by 1.
+AssistNormalStatusAccuracy
+—PP
+32Uses a random move known by a team member.
+AssuranceDarkPhysicalPower
+60Accuracy
+100%PP
+16Power doubles if target was damaged this turn.
+AstonishGhostPhysicalPower
+30Accuracy
+100%PP
+2430% chance to make the target flinch.
+AttractNormalStatusAccuracy
+100%PP
+24A target of the opposite gender gets infatuated.
+Aura WheelElectricPhysicalPower
+110Accuracy
+100%PP
+16Morpeko: Electric; Hangry: Dark; 100% +1 Spe.
+Aurora BeamIceSpecialPower
+65Accuracy
+100%PP
+3210% chance to lower the target's Attack by 1.
+Axe KickFightingPhysicalPower
+120Accuracy
+90%PP
+1630% confusion. User loses 50% max HP if miss.
+Baby-Doll EyesFairyStatusAccuracy
+100%PP
+48Lowers the target's Attack by 1.
+BarrageNormalPhysicalPower
+15Accuracy
+85%PP
+32Hits 2-5 times in one turn.
+BarrierPsychicStatusAccuracy
+—PP
+32Raises the user's Defense by 2.
+Beat UpDarkPhysicalPower
+—Accuracy
+100%PP
+16All healthy allies aid in damaging the target.
+BelchPoisonSpecialPower
+120Accuracy
+90%PP
+16Cannot be selected until the user eats a Berry.
+BestowNormalStatusAccuracy
+—PP
+24User passes its held item to the target.
+BideNormalPhysicalPower
+—Accuracy
+—PP
+16Waits 2 turns; deals double the damage taken.
+BindNormalPhysicalPower
+15Accuracy
+85%PP
+32Traps and damages the target for 4-5 turns.
+BiteDarkPhysicalPower
+60Accuracy
+100%PP
+4030% chance to make the target flinch.
+Blast BurnFireSpecialPower
+150Accuracy
+90%PP
+8User cannot move next turn.
+BlockNormalStatusAccuracy
+—PP
+8Prevents the target from switching out.
+Bone ClubGroundPhysicalPower
+65Accuracy
+85%PP
+3210% chance to make the target flinch.
+Bone RushGroundPhysicalPower
+25Accuracy
+90%PP
+16Hits 2-5 times in one turn.
+BounceFlyingPhysicalPower
+85Accuracy
+85%PP
+8Bounces turn 1. Hits turn 2. 30% paralyze.
+Branch PokeGrassPhysicalPower
+40Accuracy
+100%PP
+64No additional effect.
+Breaking SwipeDragonPhysicalPower
+60Accuracy
+100%PP
+24100% chance to lower the foe(s) Attack by 1.
+BrineWaterSpecialPower
+65Accuracy
+100%PP
+16Power doubles if the target's HP is 50% or less.
+Brutal SwingDarkPhysicalPower
+60Accuracy
+100%PP
+32No additional effect. Hits adjacent Pokemon.
+BubbleWaterSpecialPower
+40Accuracy
+100%PP
+4810% chance to lower the foe(s) Speed by 1.
+Bubble BeamWaterSpecialPower
+65Accuracy
+100%PP
+3210% chance to lower the target's Speed by 1.
+Bug BiteBugPhysicalPower
+60Accuracy
+100%PP
+32User steals and eats the target's Berry.
+BulldozeGroundPhysicalPower
+60Accuracy
+100%PP
+32100% chance lower adjacent Pkmn Speed by 1.
+Bullet SeedGrassPhysicalPower
+25Accuracy
+100%PP
+48Hits 2-5 times in one turn.
+Burning BulwarkFireStatusAccuracy
+—PP
+16Protects from damaging attacks. Contact: burn.
+Burning JealousyFireSpecialPower
+70Accuracy
+100%PP
+8100% burns a target that had a stat rise this turn.
+CamouflageNormalStatusAccuracy
+—PP
+32Changes user's type by terrain (default Normal).
+CaptivateNormalStatusAccuracy
+100%PP
+32Lowers the foe(s) Sp. Atk by 2 if opposite gender.
+CelebrateNormalStatusAccuracy
+—PP
+64No competitive use.
+ChargeElectricStatusAccuracy
+—PP
+32+1 SpD, user's next Electric move 2x power.
+Charge BeamElectricSpecialPower
+50Accuracy
+90%PP
+1670% chance to raise the user's Sp. Atk by 1.
+CharmFairyStatusAccuracy
+100%PP
+32Lowers the target's Attack by 2.
+Chilling WaterWaterSpecialPower
+50Accuracy
+100%PP
+32100% chance to lower the target's Attack by 1.
+Chip AwayNormalPhysicalPower
+70Accuracy
+100%PP
+32Ignores the target's stat stage changes.
+ClampWaterPhysicalPower
+35Accuracy
+85%PP
+24Traps and damages the target for 4-5 turns.
+CoachingFightingStatusAccuracy
+—PP
+16Raises an ally's Attack and Defense by 1.
+Comet PunchNormalPhysicalPower
+18Accuracy
+85%PP
+24Hits 2-5 times in one turn.
+ComeuppanceDarkPhysicalPower
+—Accuracy
+100%PP
+16If hit by an attack, returns 1.5x damage.
+ConfideNormalStatusAccuracy
+—PP
+32Lowers the target's Sp. Atk by 1.
+Confuse RayGhostStatusAccuracy
+100%PP
+16Confuses the target.
+ConfusionPsychicSpecialPower
+50Accuracy
+100%PP
+4010% chance to confuse the target.
+ConstrictNormalPhysicalPower
+10Accuracy
+100%PP
+5610% chance to lower the target's Speed by 1.
+ConversionNormalStatusAccuracy
+—PP
+48Changes user's type to match its first move.
+Conversion 2NormalStatusAccuracy
+—PP
+48Changes user's type to resist target's last move.
+CopycatNormalStatusAccuracy
+—PP
+32Uses the last move used in the battle.
+Cosmic PowerPsychicStatusAccuracy
+—PP
+32Raises the user's Defense and Sp. Def by 1.
+Cotton SporeGrassStatusAccuracy
+100%PP
+64Lowers the target's Speed by 2.
+CounterFightingPhysicalPower
+—Accuracy
+100%PP
+32If hit by physical attack, returns double damage.
+CovetNormalPhysicalPower
+60Accuracy
+100%PP
+40If the user has no item, it steals the target's.
+Crafty ShieldFairyStatusAccuracy
+—PP
+16Protects allies from Status moves this turn.
+Cross PoisonPoisonPhysicalPower
+70Accuracy
+100%PP
+32High critical hit ratio. 10% chance to poison.
+Crush ClawNormalPhysicalPower
+75Accuracy
+95%PP
+1650% chance to lower the target's Defense by 1.
+Crush GripNormalPhysicalPower
+—Accuracy
+100%PP
+8More power the more HP the target has left.
+DecorateFairyStatusAccuracy
+—PP
+24Raises the target's Attack and Sp. Atk by 2.
+Defend OrderBugStatusAccuracy
+—PP
+16Raises the user's Defense and Sp. Def by 1.
+Defense CurlNormalStatusAccuracy
+—PP
+64Raises the user's Defense by 1.
+DigGroundPhysicalPower
+80Accuracy
+100%PP
+16Digs underground turn 1, strikes turn 2.
+Disarming VoiceFairySpecialPower
+40Accuracy
+—PP
+24This move does not check accuracy. Hits foes.
+DiveWaterPhysicalPower
+80Accuracy
+100%PP
+16Dives underwater turn 1, strikes turn 2.
+Dizzy PunchNormalPhysicalPower
+70Accuracy
+100%PP
+1620% chance to confuse the target.
+DoodleNormalStatusAccuracy
+100%PP
+16User and ally's Abilities become target's Ability.
+Double HitNormalPhysicalPower
+35Accuracy
+90%PP
+16Hits 2 times in one turn.
+Double KickFightingPhysicalPower
+30Accuracy
+100%PP
+48Hits 2 times in one turn.
+Double SlapNormalPhysicalPower
+15Accuracy
+85%PP
+16Hits 2-5 times in one turn.
+Double TeamNormalStatusAccuracy
+—PP
+24Raises the user's evasiveness by 1.
+Dragon BreathDragonSpecialPower
+60Accuracy
+100%PP
+3230% chance to paralyze the target.
+Dragon CheerDragonStatusAccuracy
+—PP
+24Ally: Crit ratio +1, or +2 if ally is Dragon type.
+Dragon RageDragonSpecialPower
+—Accuracy
+100%PP
+16Deals 40 HP of damage to the target.
+Dragon RushDragonPhysicalPower
+100Accuracy
+75%PP
+1620% chance to make the target flinch.
+Dream EaterPsychicSpecialPower
+100Accuracy
+100%PP
+24User gains 1/2 HP inflicted. Sleeping target only.
+Dual ChopDragonPhysicalPower
+40Accuracy
+90%PP
+24Hits 2 times in one turn.
+Dual WingbeatFlyingPhysicalPower
+40Accuracy
+90%PP
+16Hits 2 times in one turn.
+Dynamic PunchFightingPhysicalPower
+100Accuracy
+50%PP
+8100% chance to confuse the target.
+Echoed VoiceNormalSpecialPower
+40Accuracy
+100%PP
+24Power increases when used on consecutive turns.
+Eerie ImpulseElectricStatusAccuracy
+100%PP
+24Lowers the target's Sp. Atk by 2.
+Egg BombNormalPhysicalPower
+100Accuracy
+75%PP
+16No additional effect.
+Electric TerrainElectricStatusAccuracy
+—PP
+165 turns. Grounded: +Electric power, can't sleep.
+ElectrifyElectricStatusAccuracy
+—PP
+32Changes the target's move to Electric this turn.
+Electro BallElectricSpecialPower
+—Accuracy
+100%PP
+16More power the faster the user is than the target.
+Electro ShotElectricSpecialPower
+130Accuracy
+100%PP
+16Raises Sp. Atk by 1, hits turn 2. Rain: no charge.
+ElectrowebElectricSpecialPower
+55Accuracy
+95%PP
+24100% chance to lower the foe(s) Speed by 1.
+EmbargoDarkStatusAccuracy
+100%PP
+24For 5 turns, the target's item has no effect.
+EmberFireSpecialPower
+40Accuracy
+100%PP
+4010% chance to burn the target.
+EndureNormalStatusAccuracy
+—PP
+16User survives attacks this turn with at least 1 HP.
+EntrainmentNormalStatusAccuracy
+100%PP
+24The target's Ability changes to match the user's.
+EternabeamDragonSpecialPower
+160Accuracy
+90%PP
+8User cannot move next turn.
+Fairy LockFairyStatusAccuracy
+—PP
+16Prevents all Pokemon from switching next turn.
+Fairy WindFairySpecialPower
+40Accuracy
+100%PP
+48No additional effect.
+Fake TearsDarkStatusAccuracy
+100%PP
+32Lowers the target's Sp. Def by 2.
+False SwipeNormalPhysicalPower
+40Accuracy
+100%PP
+64Always leaves the target with at least 1 HP.
+Feather DanceFlyingStatusAccuracy
+100%PP
+24Lowers the target's Attack by 2.
+FeintNormalPhysicalPower
+30Accuracy
+100%PP
+16Nullifies Detect, Protect, and Quick/Wide Guard.
+Feint AttackDarkPhysicalPower
+60Accuracy
+—PP
+32This move does not check accuracy.
+Fell StingerBugPhysicalPower
+50Accuracy
+100%PP
+40Raises user's Attack by 3 if this KOes the target.
+Final GambitFightingSpecialPower
+—Accuracy
+100%PP
+8Does damage equal to the user's HP. User faints.
+Fire PledgeFireSpecialPower
+80Accuracy
+100%PP
+16Use with Grass or Water Pledge for added effect.
+Fire SpinFireSpecialPower
+35Accuracy
+85%PP
+24Traps and damages the target for 4-5 turns.
+FissureGroundPhysicalPower
+—Accuracy
+30%PP
+8OHKOs the target. Fails if user is a lower level.
+FlailNormalPhysicalPower
+—Accuracy
+100%PP
+24More power the less HP the user has left.
+Flame BurstFireSpecialPower
+70Accuracy
+100%PP
+24Damages Pokemon next to the target as well.
+Flame WheelFirePhysicalPower
+60Accuracy
+100%PP
+4010% chance to burn the target. Thaws user.
+FlashNormalStatusAccuracy
+100%PP
+32Lowers the target's accuracy by 1.
+FlatterDarkStatusAccuracy
+100%PP
+24Raises the target's Sp. Atk by 1 and confuses it.
+FlingDarkPhysicalPower
+—Accuracy
+100%PP
+16Flings the user's item at the target. Power varies.
+Floral HealingFairyStatusAccuracy
+—PP
+16Heals the target by 50% of its max HP.
+Flower ShieldFairyStatusAccuracy
+—PP
+16Raises Defense by 1 of all active Grass types.
+FlyFlyingPhysicalPower
+90Accuracy
+95%PP
+24Flies up on first turn, then strikes the next turn.
+Flying PressFightingPhysicalPower
+100Accuracy
+95%PP
+16Combines Flying in its type effectiveness.
+Focus EnergyNormalStatusAccuracy
+—PP
+48Raises the user's critical hit ratio by 2.
+Follow MeNormalStatusAccuracy
+—PP
+32The foes' moves target the user on the turn used.
+Force PalmFightingPhysicalPower
+60Accuracy
+100%PP
+1630% chance to paralyze the target.
+ForesightNormalStatusAccuracy
+—PP
+64Fighting, Normal hit Ghost. Evasiveness ignored.
+Forest's CurseGrassStatusAccuracy
+100%PP
+32Adds Grass to the target's type(s).
+Freeze ShockIcePhysicalPower
+140Accuracy
+90%PP
+8Charges turn 1. Hits turn 2. 30% paralyze.
+Frenzy PlantGrassSpecialPower
+150Accuracy
+90%PP
+8User cannot move next turn.
+Frost BreathIceSpecialPower
+60Accuracy
+90%PP
+16Always results in a critical hit.
+Fury AttackNormalPhysicalPower
+15Accuracy
+85%PP
+32Hits 2-5 times in one turn.
+Fury CutterBugPhysicalPower
+40Accuracy
+95%PP
+32Power doubles with each hit, up to 160.
+Fury SwipesNormalPhysicalPower
+18Accuracy
+80%PP
+24Hits 2-5 times in one turn.
+Gastro AcidPoisonStatusAccuracy
+100%PP
+16Nullifies the target's Ability.
+Gear UpSteelStatusAccuracy
+—PP
+32Raises Atk, Sp. Atk of allies with Plus/Minus by 1.
+Giga ImpactNormalPhysicalPower
+150Accuracy
+90%PP
+8User cannot move next turn.
+GlaciateIceSpecialPower
+65Accuracy
+95%PP
+16100% chance to lower the foe(s) Speed by 1.
+Grass PledgeGrassSpecialPower
+80Accuracy
+100%PP
+16Use with Fire or Water Pledge for added effect.
+Grass WhistleGrassStatusAccuracy
+55%PP
+24Causes the target to fall asleep.
+Grassy GlideGrassPhysicalPower
+55Accuracy
+100%PP
+32User on Grassy Terrain: +1 priority.
+Grassy TerrainGrassStatusAccuracy
+—PP
+165 turns. Grounded: +Grass power, +1/16 max HP.
+GravityPsychicStatusAccuracy
+—PP
+85 turns: no Ground immunities, 1.67x accuracy.
+GrowlNormalStatusAccuracy
+100%PP
+64Lowers the foe(s) Attack by 1.
+GrowthNormalStatusAccuracy
+—PP
+32Raises user's Attack and Sp. Atk by 1; 2 in Sun.
+GrudgeGhostStatusAccuracy
+—PP
+8If the user faints, the attack used loses all its PP.
+Guard SplitPsychicStatusAccuracy
+—PP
+16Averages Defense and Sp. Def stats with target.
+Guard SwapPsychicStatusAccuracy
+—PP
+16Swaps Defense and Sp. Def changes with target.
+GuillotineNormalPhysicalPower
+—Accuracy
+30%PP
+8OHKOs the target. Fails if user is a lower level.
+GustFlyingSpecialPower
+40Accuracy
+100%PP
+56Power doubles during Bounce, Fly, and Sky Drop.
+Gyro BallSteelPhysicalPower
+—Accuracy
+100%PP
+8More power the slower the user than the target.
+HailIceStatusAccuracy
+—PP
+16For 5 turns, hail crashes down.
+Happy HourNormalStatusAccuracy
+—PP
+48No competitive use.
+HardenNormalStatusAccuracy
+—PP
+48Raises the user's Defense by 1.
+Hard PressSteelPhysicalPower
+—Accuracy
+100%PP
+16More power the more HP the target has left.
+HeadbuttNormalPhysicalPower
+70Accuracy
+100%PP
+2430% chance to make the target flinch.
+Heal BlockPsychicStatusAccuracy
+100%PP
+24For 5 turns, the foe(s) is prevented from healing.
+Heal PulsePsychicStatusAccuracy
+—PP
+16Heals the target by 50% of its max HP.
+Heart StampPsychicPhysicalPower
+60Accuracy
+100%PP
+4030% chance to make the target flinch.
+Heat CrashFirePhysicalPower
+—Accuracy
+100%PP
+16More power the heavier the user than the target.
+Heavy SlamSteelPhysicalPower
+—Accuracy
+100%PP
+16More power the heavier the user than the target.
+Helping HandNormalStatusAccuracy
+—PP
+32One adjacent ally's move power is 1.5x this turn.
+HexGhostSpecialPower
+65Accuracy
+100%PP
+16Power doubles if the target has a status ailment.
+Hidden PowerNormalSpecialPower
+60Accuracy
+100%PP
+24Varies in type based on the user's IVs.
+Hidden Power BugBugSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power DarkDarkSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power DragonDragonSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power ElectricElectricSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power FightingFightingSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power FireFireSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power FlyingFlyingSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power GhostGhostSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power GrassGrassSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power GroundGroundSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power IceIceSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power PoisonPoisonSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power PsychicPsychicSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power RockRockSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power SteelSteelSpecialPower
+60Accuracy
+100%PP
+24
+Hidden Power WaterWaterSpecialPower
+60Accuracy
+100%PP
+24
+Horn AttackNormalPhysicalPower
+65Accuracy
+100%PP
+40No additional effect.
+Horn DrillNormalPhysicalPower
+—Accuracy
+30%PP
+8OHKOs the target. Fails if user is a lower level.
+HowlNormalStatusAccuracy
+—PP
+64Raises the user's and ally's Attack by 1.
+Hydro CannonWaterSpecialPower
+150Accuracy
+90%PP
+8User cannot move next turn.
+Hyper BeamNormalSpecialPower
+150Accuracy
+90%PP
+8User cannot move next turn.
+Hyper FangNormalPhysicalPower
+80Accuracy
+90%PP
+2410% chance to make the target flinch.
+Hyperspace HolePsychicSpecialPower
+80Accuracy
+—PP
+8Breaks the target's protection for this turn.
+HypnosisPsychicStatusAccuracy
+60%PP
+32Causes the target to fall asleep.
+Ice BallIcePhysicalPower
+30Accuracy
+90%PP
+32Power doubles with each hit. Repeats for 5 turns.
+Ice BurnIceSpecialPower
+140Accuracy
+90%PP
+8Charges turn 1. Hits turn 2. 30% burn.
+Ice PunchIcePhysicalPower
+75Accuracy
+100%PP
+2410% chance to freeze the target.
+Icicle CrashIcePhysicalPower
+85Accuracy
+90%PP
+1630% chance to make the target flinch.
+Icy WindIceSpecialPower
+55Accuracy
+95%PP
+24100% chance to lower the foe(s) Speed by 1.
+ImprisonPsychicStatusAccuracy
+—PP
+16No foe can use any move known by the user.
+IncinerateFireSpecialPower
+60Accuracy
+100%PP
+24Destroys the foe(s) Berry/Gem.
+InfernoFireSpecialPower
+100Accuracy
+50%PP
+8100% chance to burn the target.
+IngrainGrassStatusAccuracy
+—PP
+32Traps/grounds user; heals 1/16 max HP per turn.
+InstructPsychicStatusAccuracy
+—PP
+24The target immediately uses its last used move.
+Ion DelugeElectricStatusAccuracy
+—PP
+40Normal moves become Electric type this turn.
+Iron DefenseSteelStatusAccuracy
+—PP
+24Raises the user's Defense by 2.
+Iron TailSteelPhysicalPower
+100Accuracy
+75%PP
+2430% chance to lower the target's Defense by 1.
+Jaw LockDarkPhysicalPower
+80Accuracy
+100%PP
+16Prevents both user and target from switching out.
+Jet PunchWaterPhysicalPower
+60Accuracy
+100%PP
+24Usually goes first.
+Jump KickFightingPhysicalPower
+100Accuracy
+95%PP
+16User is hurt by 50% of its max HP if it misses.
+Jungle HealingGrassStatusAccuracy
+—PP
+16User and allies: healed 1/4 max HP, status cured.
+Karate ChopFightingPhysicalPower
+50Accuracy
+100%PP
+40High critical hit ratio.
+KinesisPsychicStatusAccuracy
+80%PP
+24Lowers the target's accuracy by 1.
+Land's WrathGroundPhysicalPower
+90Accuracy
+100%PP
+16No additional effect. Hits adjacent foes.
+Laser FocusNormalStatusAccuracy
+—PP
+48Until the end of the next turn, user's moves crit.
+LeafageGrassPhysicalPower
+40Accuracy
+100%PP
+64No additional effect.
+Leaf TornadoGrassSpecialPower
+65Accuracy
+90%PP
+1650% chance to lower the target's accuracy by 1.
+LeerNormalStatusAccuracy
+100%PP
+48Lowers the foe(s) Defense by 1.
+LickGhostPhysicalPower
+30Accuracy
+100%PP
+4830% chance to paralyze the target.
+Life DewWaterStatusAccuracy
+—PP
+16Heals the user and its allies by 1/4 their max HP.
+Lock-OnNormalStatusAccuracy
+—PP
+8User's next move will not miss the target.
+Low SweepFightingPhysicalPower
+65Accuracy
+100%PP
+32100% chance to lower the target's Speed by 1.
+Lucky ChantNormalStatusAccuracy
+—PP
+48For 5 turns, shields user's party from critical hits.
+Lunar BlessingPsychicStatusAccuracy
+—PP
+8User and allies: healed 1/4 max HP, status cured.
+Magical LeafGrassSpecialPower
+60Accuracy
+—PP
+32This move does not check accuracy.
+Magic PowderPsychicStatusAccuracy
+100%PP
+32Changes the target's type to Psychic.
+Magic RoomPsychicStatusAccuracy
+—PP
+16For 5 turns, all held items have no effect.
+Magnet BombSteelPhysicalPower
+60Accuracy
+—PP
+32This move does not check accuracy.
+Magnetic FluxElectricStatusAccuracy
+—PP
+32Raises Def, Sp. Def of allies with Plus/Minus by 1.
+Magnet RiseElectricStatusAccuracy
+—PP
+16For 5 turns, the user has immunity to Ground.
+MagnitudeGroundPhysicalPower
+—Accuracy
+100%PP
+48Hits adjacent Pokemon. Power varies; 2x on Dig.
+Mat BlockFightingStatusAccuracy
+—PP
+16Protects allies from damaging attacks. Turn 1 only.
+Mean LookNormalStatusAccuracy
+—PP
+8Prevents the target from switching out.
+MeditatePsychicStatusAccuracy
+—PP
+64Raises the user's Attack by 1.
+Me FirstNormalStatusAccuracy
+—PP
+32Copies a foe at 1.5x power. User must be faster.
+Mega DrainGrassSpecialPower
+40Accuracy
+100%PP
+24User recovers 50% of the damage dealt.
+Mega KickNormalPhysicalPower
+120Accuracy
+75%PP
+8No additional effect.
+Mega PunchNormalPhysicalPower
+80Accuracy
+85%PP
+32No additional effect.
+Metal BurstSteelPhysicalPower
+—Accuracy
+100%PP
+16If hit by an attack, returns 1.5x damage.
+Metal ClawSteelPhysicalPower
+50Accuracy
+95%PP
+5610% chance to raise the user's Attack by 1.
+Metal SoundSteelStatusAccuracy
+85%PP
+64Lowers the target's Sp. Def by 2.
+Meteor AssaultFightingPhysicalPower
+150Accuracy
+100%PP
+8User cannot move next turn.
+Meteor BeamRockSpecialPower
+120Accuracy
+90%PP
+16Raises user's Sp. Atk by 1 on turn 1. Hits turn 2.
+MetronomeNormalStatusAccuracy
+—PP
+16Picks a random move.
+MimicNormalStatusAccuracy
+—PP
+16The last move the target used replaces this one.
+Mind ReaderNormalStatusAccuracy
+—PP
+8User's next move will not miss the target.
+MinimizeNormalStatusAccuracy
+—PP
+16Raises the user's evasiveness by 2.
+Miracle EyePsychicStatusAccuracy
+—PP
+64Psychic hits Dark. Evasiveness ignored.
+Mirror CoatPsychicSpecialPower
+—Accuracy
+100%PP
+32If hit by special attack, returns double damage.
+Mirror MoveFlyingStatusAccuracy
+—PP
+32User uses the target's last used move against it.
+Mirror ShotSteelSpecialPower
+65Accuracy
+85%PP
+1630% chance to lower the target's accuracy by 1.
+MistIceStatusAccuracy
+—PP
+48For 5 turns, protects user's party from stat drops.
+Misty ExplosionFairySpecialPower
+100Accuracy
+100%PP
+8User faints. User on Misty Terrain: 1.5x power.
+Misty TerrainFairyStatusAccuracy
+—PP
+165 turns. Can't status,-Dragon power vs grounded.
+Mud BombGroundSpecialPower
+65Accuracy
+85%PP
+1630% chance to lower the target's accuracy by 1.
+Muddy WaterWaterSpecialPower
+90Accuracy
+85%PP
+1630% chance to lower the foe(s) accuracy by 1.
+Mud ShotGroundSpecialPower
+55Accuracy
+95%PP
+24100% chance to lower the target's Speed by 1.
+Mud-SlapGroundSpecialPower
+20Accuracy
+100%PP
+16100% chance to lower the target's accuracy by 1.
+Mud SportGroundStatusAccuracy
+—PP
+24For 5 turns, Electric-type attacks have 1/3 power.
+Mystical FireFireSpecialPower
+75Accuracy
+100%PP
+16100% chance to lower the target's Sp. Atk by 1.
+Natural GiftNormalPhysicalPower
+—Accuracy
+100%PP
+24Power and type depends on the user's Berry.
+Nature PowerNormalStatusAccuracy
+—PP
+32Attack depends on terrain (default Tri Attack).
+Needle ArmGrassPhysicalPower
+60Accuracy
+100%PP
+2430% chance to make the target flinch.
+Night DazeDarkSpecialPower
+85Accuracy
+95%PP
+1640% chance to lower the target's accuracy by 1.
+NightmareGhostStatusAccuracy
+100%PP
+24A sleeping target is hurt by 1/4 max HP per turn.
+Night SlashDarkPhysicalPower
+70Accuracy
+100%PP
+24High critical hit ratio.
+Noble RoarNormalStatusAccuracy
+100%PP
+48Lowers the target's Attack and Sp. Atk by 1.
+OctazookaWaterSpecialPower
+65Accuracy
+85%PP
+1650% chance to lower the target's accuracy by 1.
+OctolockFightingStatusAccuracy
+100%PP
+24Traps target, lowers Def and SpD by 1 each turn.
+Odor SleuthNormalStatusAccuracy
+—PP
+64Fighting, Normal hit Ghost. Evasiveness ignored.
+Ominous WindGhostSpecialPower
+60Accuracy
+100%PP
+810% chance to raise all stats by 1 (not acc/eva).
+OutrageDragonPhysicalPower
+120Accuracy
+100%PP
+16Lasts 2-3 turns. Confuses the user afterwards.
+Parabolic ChargeElectricSpecialPower
+65Accuracy
+100%PP
+32User recovers 50% of the damage dealt.
+PaybackDarkPhysicalPower
+50Accuracy
+100%PP
+16Power doubles if the user moves after the target.
+Pay DayNormalPhysicalPower
+40Accuracy
+100%PP
+32Scatters coins.
+PeckFlyingPhysicalPower
+35Accuracy
+100%PP
+56No additional effect.
+Phantom ForceGhostPhysicalPower
+90Accuracy
+100%PP
+16Disappears turn 1. Hits turn 2. Breaks protection.
+Pin MissileBugPhysicalPower
+25Accuracy
+95%PP
+32Hits 2-5 times in one turn.
+Play NiceNormalStatusAccuracy
+—PP
+32Lowers the target's Attack by 1.
+PluckFlyingPhysicalPower
+60Accuracy
+100%PP
+32User steals and eats the target's Berry.
+Poison FangPoisonPhysicalPower
+50Accuracy
+100%PP
+2450% chance to badly poison the target.
+Poison GasPoisonStatusAccuracy
+90%PP
+64Poisons the foe(s).
+Poison PowderPoisonStatusAccuracy
+75%PP
+56Poisons the target.
+Poison StingPoisonPhysicalPower
+15Accuracy
+100%PP
+5630% chance to poison the target.
+Poison TailPoisonPhysicalPower
+50Accuracy
+100%PP
+40High critical hit ratio. 10% chance to poison.
+Pollen PuffBugSpecialPower
+90Accuracy
+100%PP
+24If the target is an ally, heals 50% of its max HP.
+PounceBugPhysicalPower
+50Accuracy
+100%PP
+32100% chance to lower the target's Speed by 1.
+PoundNormalPhysicalPower
+40Accuracy
+100%PP
+56No additional effect.
+PowderBugStatusAccuracy
+100%PP
+32If using a Fire move, target loses 1/4 max HP.
+Powder SnowIceSpecialPower
+40Accuracy
+100%PP
+4010% chance to freeze the foe(s).
+Power SplitPsychicStatusAccuracy
+—PP
+16Averages Attack and Sp. Atk stats with target.
+Power SwapPsychicStatusAccuracy
+—PP
+16Swaps Attack and Sp. Atk stat stages with target.
+Power TrickPsychicStatusAccuracy
+—PP
+16Switches user's Attack and Defense stats.
+Power TripDarkPhysicalPower
+20Accuracy
+100%PP
+16+ 20 power for each of the user's stat boosts.
+PresentNormalPhysicalPower
+—Accuracy
+90%PP
+2440, 80, 120 power, or heals target 1/4 max HP.
+Prismatic LaserPsychicSpecialPower
+160Accuracy
+100%PP
+16User cannot move next turn.
+PsybeamPsychicSpecialPower
+65Accuracy
+100%PP
+3210% chance to confuse the target.
+Psychic TerrainPsychicStatusAccuracy
+—PP
+165 turns. Grounded: +Psychic power, priority-safe.
+Psycho ShiftPsychicStatusAccuracy
+100%PP
+16Transfers the user's status ailment to the target.
+Psych UpNormalStatusAccuracy
+—PP
+16Copies the target's current stat stages.
+PsywavePsychicSpecialPower
+—Accuracy
+100%PP
+24Random damage equal to 0.5x-1.5x user's level.
+PunishmentDarkPhysicalPower
+—Accuracy
+100%PP
+860 power +20 for each of the target's stat boosts.
+PurifyPoisonStatusAccuracy
+—PP
+32Cures target's status; heals user 1/2 max HP if so.
+QuashDarkStatusAccuracy
+100%PP
+24Forces the target to move last this turn.
+Quick GuardFightingStatusAccuracy
+—PP
+24Protects allies from priority attacks this turn.
+RageNormalPhysicalPower
+20Accuracy
+100%PP
+32Raises the user's Attack by 1 if hit during use.
+Rage PowderBugStatusAccuracy
+—PP
+32The foes' moves target the user on the turn used.
+Rain DanceWaterStatusAccuracy
+—PP
+8For 5 turns, heavy rain powers Water moves.
+Razor LeafGrassPhysicalPower
+55Accuracy
+95%PP
+40High critical hit ratio. Hits adjacent foes.
+Razor WindNormalSpecialPower
+80Accuracy
+100%PP
+16Charges, then hits foe(s) turn 2. High crit ratio.
+RecycleNormalStatusAccuracy
+—PP
+16Restores the item the user last used.
+RefreshNormalStatusAccuracy
+—PP
+32User cures its burn, poison, or paralysis.
+Relic SongNormalSpecialPower
+75Accuracy
+100%PP
+1610% chance to sleep foe(s). Meloetta transforms.
+RetaliateNormalPhysicalPower
+70Accuracy
+100%PP
+8Power doubles if an ally fainted last turn.
+RevengeFightingPhysicalPower
+60Accuracy
+100%PP
+16Power doubles if user is damaged by the target.
+ReversalFightingPhysicalPower
+—Accuracy
+100%PP
+24More power the less HP the user has left.
+Rising VoltageElectricSpecialPower
+70Accuracy
+100%PP
+322x power if target is grounded in Electric Terrain.
+Roar of TimeDragonSpecialPower
+150Accuracy
+90%PP
+8User cannot move next turn.
+Rock ClimbNormalPhysicalPower
+90Accuracy
+85%PP
+3220% chance to confuse the target.
+Rock SmashFightingPhysicalPower
+40Accuracy
+100%PP
+2450% chance to lower the target's Defense by 1.
+Rock ThrowRockPhysicalPower
+50Accuracy
+90%PP
+24No additional effect.
+Rock TombRockPhysicalPower
+60Accuracy
+95%PP
+24100% chance to lower the target's Speed by 1.
+Rock WreckerRockPhysicalPower
+150Accuracy
+90%PP
+8User cannot move next turn.
+Role PlayPsychicStatusAccuracy
+—PP
+16User replaces its Ability with the target's.
+Rolling KickFightingPhysicalPower
+60Accuracy
+85%PP
+2430% chance to make the target flinch.
+RolloutRockPhysicalPower
+30Accuracy
+90%PP
+32Power doubles with each hit. Repeats for 5 turns.
+RototillerGroundStatusAccuracy
+—PP
+16Raises Atk/Sp. Atk of grounded Grass types by 1.
+RoundNormalSpecialPower
+60Accuracy
+100%PP
+24Power doubles if others used Round this turn.
+SafeguardNormalStatusAccuracy
+—PP
+40For 5 turns, protects user's party from status.
+Sand AttackGroundStatusAccuracy
+100%PP
+24Lowers the target's accuracy by 1.
+SandstormRockStatusAccuracy
+—PP
+16For 5 turns, a sandstorm rages. Rock: 1.5x SpD.
+Sand TombGroundPhysicalPower
+35Accuracy
+85%PP
+24Traps and damages the target for 4-5 turns.
+Scale ShotDragonPhysicalPower
+25Accuracy
+90%PP
+32Hits 2-5 times. User: -1 Def, +1 Spe after last hit.
+Scary FaceNormalStatusAccuracy
+100%PP
+16Lowers the target's Speed by 2.
+ScratchNormalPhysicalPower
+40Accuracy
+100%PP
+56No additional effect.
+ScreechNormalStatusAccuracy
+85%PP
+64Lowers the target's Defense by 2.
+Secret PowerNormalPhysicalPower
+70Accuracy
+100%PP
+32Effect varies with terrain. (30% paralysis chance)
+Self-DestructNormalPhysicalPower
+200Accuracy
+100%PP
+8Hits adjacent Pokemon. The user faints.
+Shadow ForceGhostPhysicalPower
+120Accuracy
+100%PP
+8Disappears turn 1. Hits turn 2. Breaks protection.
+Shadow PunchGhostPhysicalPower
+60Accuracy
+—PP
+32This move does not check accuracy.
+SharpenNormalStatusAccuracy
+—PP
+48Raises the user's Attack by 1.
+Sheer ColdIceSpecialPower
+—Accuracy
+30%PP
+8OHKOs non-Ice targets. Fails if user's lower level.
+Shell TrapFireSpecialPower
+150Accuracy
+100%PP
+8User must take physical damage before moving.
+ShelterSteelStatusAccuracy
+—PP
+16Raises the user's Defense by 2.
+Shock WaveElectricSpecialPower
+60Accuracy
+—PP
+32This move does not check accuracy.
+Silver WindBugSpecialPower
+60Accuracy
+100%PP
+810% chance to raise all stats by 1 (not acc/eva).
+Simple BeamNormalStatusAccuracy
+100%PP
+24The target's Ability becomes Simple.
+SingNormalStatusAccuracy
+55%PP
+24Causes the target to fall asleep.
+Skill SwapPsychicStatusAccuracy
+—PP
+16The user and the target trade Abilities.
+Skitter SmackBugPhysicalPower
+70Accuracy
+90%PP
+16100% chance to lower target's Sp. Atk by 1.
+Skull BashNormalPhysicalPower
+130Accuracy
+100%PP
+16Raises user's Defense by 1 on turn 1. Hits turn 2.
+Sky AttackFlyingPhysicalPower
+140Accuracy
+90%PP
+8Charges, then hits turn 2. 30% flinch. High crit.
+Sky DropFlyingPhysicalPower
+60Accuracy
+100%PP
+16User and foe fly up turn 1. Damages on turn 2.
+Sky UppercutFightingPhysicalPower
+85Accuracy
+90%PP
+24Can hit Pokemon using Bounce, Fly, or Sky Drop.
+SlamNormalPhysicalPower
+80Accuracy
+75%PP
+32No additional effect.
+SlashNormalPhysicalPower
+70Accuracy
+100%PP
+32High critical hit ratio.
+SludgePoisonSpecialPower
+65Accuracy
+100%PP
+3230% chance to poison the target.
+Smack DownRockPhysicalPower
+50Accuracy
+100%PP
+24Removes the target's Ground immunity.
+Smart StrikeSteelPhysicalPower
+70Accuracy
+—PP
+16This move does not check accuracy.
+Smelling SaltsNormalPhysicalPower
+70Accuracy
+100%PP
+16Power doubles if target is paralyzed, and cures it.
+SmogPoisonSpecialPower
+30Accuracy
+70%PP
+3240% chance to poison the target.
+SmokescreenNormalStatusAccuracy
+100%PP
+32Lowers the target's accuracy by 1.
+Snap TrapGrassPhysicalPower
+35Accuracy
+100%PP
+24Traps and damages the target for 4-5 turns.
+SnarlDarkSpecialPower
+55Accuracy
+95%PP
+24100% chance to lower the foe(s) Sp. Atk by 1.
+SnatchDarkStatusAccuracy
+—PP
+16User steals certain support moves to use itself.
+SnoreNormalSpecialPower
+50Accuracy
+100%PP
+24User must be asleep. 30% chance to flinch target.
+SnowscapeIceStatusAccuracy
+—PP
+16For 5 turns, snow falls. Ice: 1.5x Def.
+SoakWaterStatusAccuracy
+100%PP
+32Changes the target's type to Water.
+Solar BeamGrassSpecialPower
+120Accuracy
+100%PP
+16Charges turn 1. Hits turn 2. No charge in sunlight.
+Solar BladeGrassPhysicalPower
+125Accuracy
+100%PP
+16Charges turn 1. Hits turn 2. No charge in sunlight.
+Sonic BoomNormalSpecialPower
+—Accuracy
+90%PP
+32Always does 20 HP of damage.
+SparkElectricPhysicalPower
+65Accuracy
+100%PP
+3230% chance to paralyze the target.
+Speed SwapPsychicStatusAccuracy
+—PP
+16Swaps Speed stat with target.
+Spicy ExtractGrassStatusAccuracy
+—PP
+24Raises target's Atk by 2 and lowers its Def by 2.
+Spider WebBugStatusAccuracy
+—PP
+16Prevents the target from switching out.
+Spike CannonNormalPhysicalPower
+20Accuracy
+100%PP
+24Hits 2-5 times in one turn.
+SpiteGhostStatusAccuracy
+100%PP
+16Lowers the PP of the target's last move by 4.
+Spit UpNormalSpecialPower
+—Accuracy
+100%PP
+16More power with more uses of Stockpile.
+SplashNormalStatusAccuracy
+—PP
+64No competitive use.
+SpotlightNormalStatusAccuracy
+—PP
+24Target's foes' moves are redirected to it this turn.
+SteamrollerBugPhysicalPower
+65Accuracy
+100%PP
+3230% chance to make the target flinch.
+Steel WingSteelPhysicalPower
+70Accuracy
+90%PP
+4010% chance to raise the user's Defense by 1.
+StockpileNormalStatusAccuracy
+—PP
+32Raises user's Defense, Sp. Def by 1. Max 3 uses.
+StompNormalPhysicalPower
+65Accuracy
+100%PP
+3230% chance to make the target flinch.
+Stomping TantrumGroundPhysicalPower
+75Accuracy
+100%PP
+16Power doubles if the user's last move failed.
+StrengthNormalPhysicalPower
+80Accuracy
+100%PP
+24No additional effect.
+String ShotBugStatusAccuracy
+95%PP
+64Lowers the foe(s) Speed by 2.
+Struggle BugBugSpecialPower
+50Accuracy
+100%PP
+32100% chance to lower the foe(s) Sp. Atk by 1.
+Stuff CheeksNormalStatusAccuracy
+—PP
+16Must hold Berry to use. User eats Berry, Def +2.
+Stun SporeGrassStatusAccuracy
+75%PP
+48Paralyzes the target.
+SubmissionFightingPhysicalPower
+80Accuracy
+80%PP
+32Has 1/4 recoil.
+Sunny DayFireStatusAccuracy
+—PP
+8For 5 turns, intense sunlight powers Fire moves.
+SupersonicNormalStatusAccuracy
+55%PP
+32Causes the target to become confused.
+SwaggerNormalStatusAccuracy
+85%PP
+24Raises the target's Attack by 2 and confuses it.
+SwallowNormalStatusAccuracy
+—PP
+16Heals the user based on uses of Stockpile.
+Sweet KissFairyStatusAccuracy
+75%PP
+16Causes the target to become confused.
+Sweet ScentNormalStatusAccuracy
+100%PP
+32Lowers the foe(s) evasiveness by 2.
+SwiftNormalSpecialPower
+60Accuracy
+—PP
+32This move does not check accuracy. Hits foes.
+SynchronoisePsychicSpecialPower
+120Accuracy
+100%PP
+16Hits adjacent Pokemon sharing the user's type.
+Syrup BombGrassSpecialPower
+60Accuracy
+85%PP
+16Target's Speed is lowered by 1 stage for 3 turns.
+Tachyon CutterSteelSpecialPower
+50Accuracy
+—PP
+16Hits twice. This move does not check accuracy.
+TackleNormalPhysicalPower
+40Accuracy
+100%PP
+56No additional effect.
+Tail WhipNormalStatusAccuracy
+100%PP
+48Lowers the foe(s) Defense by 1.
+Take DownNormalPhysicalPower
+90Accuracy
+85%PP
+32Has 1/4 recoil.
+Take HeartPsychicStatusAccuracy
+—PP
+24Cures user's status, raises Sp. Atk, Sp. Def by 1.
+Tar ShotRockStatusAccuracy
+100%PP
+24Target gets -1 Spe and becomes weaker to Fire.
+Tearful LookNormalStatusAccuracy
+—PP
+32Lowers the target's Attack and Sp. Atk by 1.
+TeatimeNormalStatusAccuracy
+—PP
+16All active Pokemon consume held Berries.
+Techno BlastNormalSpecialPower
+120Accuracy
+100%PP
+8Type varies based on the held Drive.
+Teeter DanceNormalStatusAccuracy
+100%PP
+32Confuses adjacent Pokemon.
+TelekinesisPsychicStatusAccuracy
+—PP
+24For 3 turns, target floats but moves can't miss it.
+Terrain PulseNormalSpecialPower
+50Accuracy
+100%PP
+16User on terrain: power doubles, type varies.
+ThiefDarkPhysicalPower
+60Accuracy
+100%PP
+40If the user has no item, it steals the target's.
+ThrashNormalPhysicalPower
+120Accuracy
+100%PP
+16Lasts 2-3 turns. Confuses the user afterwards.
+ThunderclapElectricSpecialPower
+70Accuracy
+100%PP
+8Usually goes first. Fails if target is not attacking.
+Thunder FangElectricPhysicalPower
+65Accuracy
+95%PP
+2410% chance to paralyze. 10% chance to flinch.
+Thunder ShockElectricSpecialPower
+40Accuracy
+100%PP
+4810% chance to paralyze the target.
+TickleNormalStatusAccuracy
+100%PP
+32Lowers the target's Attack and Defense by 1.
+Topsy-TurvyDarkStatusAccuracy
+—PP
+32Inverts the target's stat stages.
+TormentDarkStatusAccuracy
+100%PP
+24Target can't select the same move twice in a row.
+Toxic ThreadPoisonStatusAccuracy
+100%PP
+32Lowers the target's Speed by 1 and poisons it.
+Trick-or-TreatGhostStatusAccuracy
+100%PP
+32Adds Ghost to the target's type(s).
+Triple KickFightingPhysicalPower
+10Accuracy
+90%PP
+16Hits 3 times. Each hit can miss, but power rises.
+Trop KickGrassPhysicalPower
+70Accuracy
+100%PP
+24100% chance to lower the target's Attack by 1.
+Trump CardNormalSpecialPower
+—Accuracy
+—PP
+5More power the fewer PP this move has left.
+TwineedleBugPhysicalPower
+25Accuracy
+100%PP
+32Hits 2 times. Each hit has 20% chance to poison.
+TwisterDragonSpecialPower
+40Accuracy
+100%PP
+3220% chance to make the foe(s) flinch.
+Upper HandFightingPhysicalPower
+65Accuracy
+100%PP
+24100% flinch. Fails unless target using priority.
+UproarNormalSpecialPower
+90Accuracy
+100%PP
+16Lasts 3 turns. Active Pokemon cannot fall asleep.
+Vacuum WaveFightingSpecialPower
+40Accuracy
+100%PP
+48Usually goes first.
+Venom DrenchPoisonStatusAccuracy
+100%PP
+32Lowers Atk/Sp. Atk/Speed of poisoned foes by 1.
+VenoshockPoisonSpecialPower
+65Accuracy
+100%PP
+16Power doubles if the target is poisoned.
+Vine WhipGrassPhysicalPower
+45Accuracy
+100%PP
+40No additional effect.
+Vise GripNormalPhysicalPower
+55Accuracy
+100%PP
+48No additional effect.
+Vital ThrowFightingPhysicalPower
+70Accuracy
+—PP
+16This move does not check accuracy. Goes last.
+Wake-Up SlapFightingPhysicalPower
+70Accuracy
+100%PP
+16Power doubles if target is asleep, and wakes it.
+Water GunWaterSpecialPower
+40Accuracy
+100%PP
+40No additional effect.
+Water PledgeWaterSpecialPower
+80Accuracy
+100%PP
+16Use with Grass or Fire Pledge for added effect.
+Water PulseWaterSpecialPower
+60Accuracy
+100%PP
+3220% chance to confuse the target.
+Water SportWaterStatusAccuracy
+—PP
+24For 5 turns, Fire-type attacks have 1/3 power.
+WhirlpoolWaterSpecialPower
+35Accuracy
+85%PP
+24Traps and damages the target for 4-5 turns.
+Wide GuardRockStatusAccuracy
+—PP
+16Protects allies from multi-target moves this turn.
+Wing AttackFlyingPhysicalPower
+60Accuracy
+100%PP
+56No additional effect.
+WithdrawWaterStatusAccuracy
+—PP
+64Raises the user's Defense by 1.
+Wonder RoomPsychicStatusAccuracy
+—PP
+16For 5 turns, all Defense and Sp. Def stats switch.
+Work UpNormalStatusAccuracy
+—PP
+48Raises the user's Attack and Sp. Atk by 1.
+Worry SeedGrassStatusAccuracy
+100%PP
+16The target's Ability becomes Insomnia.
+WrapNormalPhysicalPower
+15Accuracy
+90%PP
+32Traps and damages the target for 4-5 turns.
+Wring OutNormalSpecialPower
+—Accuracy
+100%PP
+8More power the more HP the target has left.
+Zap CannonElectricSpecialPower
+120Accuracy
+50%PP
+8100% chance to paralyze the target.
+"""
+
+
+
 
 import os #cd C:\Users\quewa\Documents\Pokémon\9
 import pickle#streamlit run Pok.py
@@ -12891,7 +16020,7 @@ nom_fichier = "sav.pickle"
 def sauvegarder(score_name):
     #print("save : ",gen,tier)
     # Charger les scores existants (ou créer un dictionnaire vide)
-    print("sav :",score_name+str(gen)+tier)
+    #print("sav :",score_name+str(gen)+tier)
     try:
         with open(nom_fichier, "rb") as f:
             scores = pickle.load(f)
@@ -12964,8 +16093,9 @@ def smogo():
         return()
     
 smog=sauvegarder("smogo") 
+print("smog : ",gen,tier)
 #print("s:",smog)
-
+#print("s:",list(smog['data'].keys())[0:10])
 
 #end_time = time()
 #print("Temps smog : " , end_time - start_time)
@@ -13351,7 +16481,7 @@ def score3():
     l_triple, score = zip(*sorted(zip(l_triple, score), key=lambda x: x[1], reverse=True))
     return(l_triple,score)
 
-
+l_types=l_types=["Steel","Fighting","Dragon","Water","Electric","Fairy","Fire","Ice","Bug","Normal","Grass","Poison","Psychic","Rock","Ground","Ghost","Dark","Flying"] 
 def score4():
     "meilleurs pokemon offensif grâce à leurs types"
     poke=smog['data'].keys()
@@ -13404,7 +16534,7 @@ def scoreSweeper(att,type1,att1,type2,att2,type3,att3):
             if destruction(type1,att,att1,type2,att2,type3,att3,j)==1:
                 sc+=smog['data'][j]['usage'] # usage
         except:
-            1==1
+            a=1
              #print("Type non trouvé pour: ",j)
     return(sc)
 def scoreSweeperSpa(att,type1,att1,type2,att2,type3,att3):
@@ -13416,7 +16546,7 @@ def scoreSweeperSpa(att,type1,att1,type2,att2,type3,att3):
             if destructionSpa(type1,att,att1,type2,att2,type3,att3,j)==1:
                 sc+=smog['data'][j]['usage'] # usage
         except:
-            1==1
+            a=1
              #print("Type non trouvé pour: ",j)
     return(sc)
 
@@ -13426,118 +16556,583 @@ def scoreSweeperSpa(att,type1,att1,type2,att2,type3,att3):
 
 
 #cd C:\Users\quewa\Documents\Pokémon\9
-import streamlit as st #streamlit run Pok.py
+#import streamlit as st #streamlit run Pok.py
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
+#st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 # Charger le contenu du fichier CSS
-with open('css.css') as f:
-    css = f.read()
+#with open('css.css') as f:
+#    css = f.read()
 
 # Ajouter le contenu du fichier CSS à l'application Streamlit
-st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+#st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
 
-st.title("Analyse des tiers")
+#st.title("Analyse des tiers")
 
 
-gen = st.number_input("Sélectionnez votre gen", min_value=1, max_value=9, step=1, value=9 )
+
+
+#gen = st.number_input("Sélectionnez votre gen", min_value=1, max_value=9, step=1, value=9 )
 
 
 # Mettez à jour la session state avec la nouvelle valeur de gen
-st.session_state.gen = gen
+#st.session_state.gen = gen
 
 # Widget de sélection du mode
-tier = st.selectbox("Choisissez le tier", ["ou", "uu","lc","ru","doublesou","ubers","1v1"]) # index=0
+#tier = st.selectbox("Choisissez le tier", ["ou", "uu","lc","ru","doublesou","ubers","1v1"]) # index=0
 
-st.session_state.tier = tier
-
-
-# Ajouter un titre
-st.title(f"Pokémon {tier} {gen}G")
+#st.session_state.tier = tier
 
 
 
+# Liste des titres d'onglets
+titres_onglets = ["Score des types", "Scores de mon Sweeper","Scores pour sweep des Pokémon","ACP"]
 
-# Ajouter du texte
-#st.write(f"Analyse de l'OU {gen}G")
-
-
-
-
-#if col1.button('Pourcentage de femmes par grande discipline'):
-#    plot_graph1()
+# Création des onglets
+onglet_selectionne = st.selectbox("Mode",titres_onglets)
 
 
-st.write("Score offensif des types")
+# Ajouter du contenu à chaque onglet
+if onglet_selectionne=="Score des types":
 
-st.write("Exemple : ")
+    
+    # Ajouter un titre
+    st.title(f"Pokémon {tier} {gen}G")
+    
+    
+    
+    
+    # Ajouter du texte
+    #st.write(f"Analyse de l'OU {gen}G")
+    
+    
+    
+    
+    #if col1.button('Pourcentage de femmes par grande discipline'):
+    #    plot_graph1()
+    
+    
+    # Titre de niveau 2 (h2)
+    st.markdown("<h2>Score offensif des types</h2>", unsafe_allow_html=True)
+    
+    st.write("Exemple : ")
+    
+    st.write("Landorus a 40% d'utilisation et Heatran 10% d'utilisation. Donc une attaque Ice a un score de 0.4x4+0.1/4+... et une attaque Ground a un score de 0.4x0+0.1x4+... ")
+    
+    
+    
+    
+    
+    
+    col1, col2,col3,col4 = st.columns(4)
+    
+    #meilleurs types offensifs score   "Score des types"   type score
+    # Créer un bouton "Score"
+    if col1.button('Score des types'):
+        #1==1
+        # Appeler la fonction score
+        #print(sauvegarder("score"))
+        liste1, liste2 = sauvegarder("score")
+        # Afficher les deux listes
+        #st.write(' '.join(liste1))
+        #st.write( '   '.join([f'{x:.2f}' for x in liste2]))
+        # Créer un tableau pour afficher les deux listes
+        tableau = { 'Type : ': liste1, 'Score : ': liste2    }
+        # Afficher le tableau
+        st.table(tableau)
+    
+    if col2.button('Score des doubles types'):
+        #1==1
+        liste1, liste2 = sauvegarder("score2")
+        liste1 = [f'{x} {y}' for x, y in liste1]
+        tableau = { 'Double type : ': liste1, 'Score : ': liste2    }
+        st.table(tableau)
+    
+    
+    
+    if col3.button('Score des triples types'):
+        #1==1
+        liste1, liste2 = sauvegarder("score3")
+        liste1 = [f'{x} {y} {z}' for x, y, z in liste1]
+        tableau = { 'Triple type : ': liste1, 'Score : ': liste2    }
+        st.table(tableau)
+    
+    
+    
+    if col4.button('Pokémon avec le meilleur double stab'):
+        #1==1
+        liste1 = sauvegarder("score4")
+        liste1 = [f'{x} ' for x in liste1]
+        tableau = { 'Pokémon : ': liste1[:100]   }
+        st.table(tableau)
+    
+    
+    
+    
+    from streamlit.components.v1 import html
+    
+    # Définissez votre code JavaScript
+    #mon_script_js = """alert("Bonjour, monde !");"""
+    
+    
+    # Lire le contenu du fichier script.js et stocker dans une variable
+    with open("script.js", "r") as js_file:
+        mon_script_js = js_file.read()
+    #print(mon_script_js)
+    
+    
+    # Enveloppez le code JavaScript dans des balises <script>
+    mon_html = f"<script>{mon_script_js}</script>"
+    
+    # Affichez le composant HTML
+    html(mon_html)
+    
+    
+    
+ 
 
-st.write("Landorus a 40% d'utilisation et Heatran 10% d'utilisation. Donc une attaque Ice a un score de 0.4x4+0.1/4+... et une attaque Ground a un score de 0.4x0+0.1x4+... ")
-
-col1, col2,col3,col4 = st.columns(4)
-
-#meilleurs types offensifs score   "Score des types"   type score
-# Créer un bouton "Score"
-if col1.button('Score des types'):
-    #1==1
-    # Appeler la fonction score
-    #print(sauvegarder("score"))
-    liste1, liste2 = sauvegarder("score")
-    # Afficher les deux listes
-    #st.write(' '.join(liste1))
-    #st.write( '   '.join([f'{x:.2f}' for x in liste2]))
-    # Créer un tableau pour afficher les deux listes
-    tableau = { 'Type : ': liste1, 'Score : ': liste2    }
-    # Afficher le tableau
-    st.table(tableau)
-
-if col2.button('Score des doubles types'):
-    #1==1
-    liste1, liste2 = sauvegarder("score2")
-    liste1 = [f'{x} {y}' for x, y in liste1]
-    tableau = { 'Double type : ': liste1, 'Score : ': liste2    }
-    st.table(tableau)
 
 
+def puis(move):
+    "Mettre le nom anglais du move, retourne sa puissance"
+    # Séparer les mouvements en une liste de chaînes de caractères moves_list = moves.split('.\n')
+    # Parcourir la liste de mouvements
+    # Séparer chaque mouvement en une liste de chaînes de caractères  move_info = move.split('\n')
+    # Extraire le nom du mouvementname = move_info[0].split(' ')[0]
+    l_types=["Steel","Fighting","Dragon","Water","Electric","Fairy","Fire","Ice","Bug","Normal","Grass","Poison","Psychic","Rock","Ground","Ghost","Dark","Flying"]
+    m=moves
+    endroit=m.find(move) #moves[endroit+len(move):endroit+len(move)+10]
+    if endroit==-1:
+        m=moves.lower().replace(' ', '').replace('-', '')
+        endroit=m.find(move)
+    ty=""   
+    for ii in l_types:
+        if m[endroit+len(move):endroit+len(move)+10].startswith((ii,ii.lower())):
+            ty=ii
+            break
+    cat=""
+    if m[endroit+len(move)+len(ty):endroit+len(move)+len(ty)+1] in "Pp" :
+        cat="Physique"
+    elif m[endroit+len(move)+len(ty):endroit+len(move)+len(ty)+2]=="Sp" or m[endroit+len(move)+len(ty):endroit+len(move)+len(ty)+2]=="sp" :
+        cat="Special"
+    else:
+        cat="Statut"
+    power=0
+    if cat!="Statut":
+        power=int(m[endroit+len(move)+len(ty):endroit+len(move)+len(ty)+40].split("\n")[1].lower().split("accuracy")[0])
+    return(cat,ty,power)
 
-if col3.button('Score des triples types'):
-    #1==1
-    liste1, liste2 = sauvegarder("score3")
-    liste1 = [f'{x} {y} {z}' for x, y, z in liste1]
-    tableau = { 'Triple type : ': liste1, 'Score : ': liste2    }
-    st.table(tableau)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def extraire_nombre(chaine):
+    nombre = ''.join(filter(str.isdigit, chaine))
+    return int(nombre)
 
 
+def contre(att,type1,att1,type2,att2,type3,att3,pc=0.1):
+    "Voir les pokémon qui me contre"
+    poke=smog['data'].keys() #Liste des pok
+    sc=0
+    l=[]
+    for j in poke:
+        try:
+            if destruction(type1,att,att1,type2,att2,type3,att3,j)==1:
+                sc+=smog['data'][j]['usage'] # usage
+            elif smog['data'][j]['usage']>pc:
+                l+=[j+" "+str(smog['data'][j]['usage'])[2:4]]
+        except:
+            a=1
+                #print("Type non trouvé pour: ",j)
+    l = sorted(l, key=extraire_nombre, reverse=True)   
+    return(l)
+
+def contreSpa(att,type1,att1,type2,att2,type3,att3,pc=0.1):
+    "Voir les pokémon qui me contre"
+    poke=smog['data'].keys() #Liste des pok
+    sc=0
+    l=[]
+    for j in poke:
+        try:
+            if destructionSpa(type1,att,att1,type2,att2,type3,att3,j)==1:
+                sc+=smog['data'][j]['usage'] # usage
+            elif smog['data'][j]['usage']>pc:
+                l+=[j+" "+str(smog['data'][j]['usage'])[2:4]]
+        except:
+            a=1
+                #print("Type non trouvé pour: ",j)
+    l = sorted(l, key=extraire_nombre, reverse=True)
+    return(l)
 
 
+if onglet_selectionne=="Scores de mon Sweeper":
+
+    st.title(f"Score et contres du combo contre {tier} {gen}G")
+    # Créer des champs de saisie pour att, att1, att2 et att3
+    
+    st.write("""Exemple :  \n 
+Je joue Braségali. \n 
+Il a une attaque de 339.  \n 
+Une fois que j'ai placé ma danse lames, mon attaque est de att=678.  \n 
+Je joue mon set avec close combat et flareblitz.  \n 
+Donc att1=120 att2=120 att3=0   type1=Fighting type2=Fire  \n 
+Le score du Pokémon est 4.3  \n 
+Cela veut dire qu'après une danse lames, Braségali peut One Shot en moyenne 4.3 Pokémon sur 6 de l'adversaire.  \n 
+Un contre à Braségali est Great Tusk qui est joué dans 25% des teams, il survit à une attaque de Braségali.""")
+    
+    att = st.number_input("Valeur pour att",value=0)
+    att1 = st.number_input("Valeur pour att1",value=0)
+    att2 = st.number_input("Valeur pour att2",value=0)
+    att3 = st.number_input("Valeur pour att3",value=0)
+    
+    # Liste des types disponibles
+    l_types = ["Steel", "Fighting", "Dragon", "Water", "Electric", "Fairy", "Fire", "Ice", "Bug", "Normal", "Grass", "Poison", "Psychic", "Rock", "Ground", "Ghost", "Dark", "Flying"]
+    
+    # Sélection des types
+    type1 = st.selectbox("Sélectionnez le type 1", l_types)
+    type2 = st.selectbox("Sélectionnez le type 2", l_types)
+    type3 = st.selectbox("Sélectionnez le type 3", l_types)
+    
+    # Bouton pour activer la fonction scoreSweeper
+    if st.button("Calculer le score physique"):
+        # Appeler la fonction scoreSweeper avec les valeurs entrées
+        resultat1=scoreSweeper(att, type1, att1, type2, att2, type3, att3)
+        st.session_state.resultat1=resultat1
+    try:
+        resultat1=st.session_state.resultat1
+        st.write(f"Le score calculé est : **{resultat1}**",unsafe_allow_html =True)
+    except:
+        st.write(f"Le score calculé est :")
+
+
+    if st.button("Calculer le score spécial"):
+        resultat2=scoreSweeperSpa(att, type1, att1, type2, att2, type3, att3)
+        st.session_state.resultat2=resultat2
+    try:
+        resultat2=st.session_state.resultat2
+        st.write(f"Le score calculé est : **{resultat2}**", unsafe_allow_html=True)
+    except:
+        st.write(f"Le score calculé est :")
+
+
+    if st.button("Contres de mon attaque physique"):
+        contre1=contre(att,type1,att1,type2,att2,type3,att3,pc=0.01)
+        st.session_state.contre1=contre1
+    try:
+        contre1=st.session_state.contre1
+        # Diviser chaque élément de la liste en deux parties : nom et pourcentage
+        name=[item.rsplit(maxsplit=1)[0] for item in contre1]
+        noms = [tradFR(item) for item in name]
+        pourcentages = [int(item.rsplit(maxsplit=1)[1]) for item in contre1]
+        dfcontre1={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
+        st.write(f"Les contres de mon attaque physiques : ", unsafe_allow_html=True)#**{dfcontre1}**
+        st.table(dfcontre1)
+    except:
+        st.write(f"Les contres de mon attaque physiques :")
+    
+
+
+
+    if st.button("Contres de mon attaque spécial"):
+        contre2=contreSpa(att,type1,att1,type2,att2,type3,att3,pc=0.01)
+        st.session_state.contre2=contre2
+    try:
+        contre2=st.session_state.contre2
+        name=[item.rsplit(maxsplit=1)[0] for item in contre2]
+        noms = [tradFR(item) for item in name]
+        pourcentages = [int(item.rsplit(maxsplit=1)[1]) for item in contre2]
+        dfcontre1={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
+        st.write(f"Les contres de mon attaque physiques : ", unsafe_allow_html=True)#**{dfcontre1}**
+        st.table(dfcontre1)
+    except:
+        st.write(f"Les contres de mon attaque spécial :")
+
+
+
+if onglet_selectionne=="Scores pour sweep des Pokémon":
+    #Meilleurs Pokémon pour sweep
+    import re #findall
+    from time import time,sleep
+    
+    
+    st.write("""Le set le plus joué de Braségali est : \n
+EV: ['Adamant:0/252/0/0/4/252'] \n
+Statistiques du Pokémon: [301, 339, 176, 256, 177, 259] \n 
+Moves : ['closecombat', 'swordsdance', 'flareblitz', 'protect']  \n 
+Le score du Pokémon est 4.3  \n
+Cela veut dire qu'après une danse lames, Braségali peut One Shot en moyenne 4.3 Pokémon sur 6 de l'adversaire.""") 
+    
+    #smog['data'].keys() #Liste des pok
+    #smog['data'][j]['usage'] # usage
+    
+    def sweep():
+        
+        #print("sweep : ",tier)
+        
+        time5=time()
+        time1=time()
+        l=[]
+        m=moves.lower().replace(' ', '').replace('-', '')
+        poke=smog['data'].keys() #Liste des pok
+        print(poke)
+        time1=time()-time1
+        
+        for po in list(poke):#[0:10]
+            try:
+                time2=time()
+                pok=tradFR(po)
+                #print(pok)
+                #pok="Lanssorien"
+                #print(pok)
+                datpok=data.split(pok)[1]
+                l_types=["Steel","Fighting","Dragon","Water","Electric","Fairy","Fire","Ice","Bug","Normal","Grass","Poison","Psychic","Rock","Ground","Ghost","Dark","Flying"]
+                for i in l_types:
+                    if datpok.startswith(i):
+                        type1=i
+                        break
+                type2=""
+                for i in l_types:
+                    if datpok[len(type1):].startswith(i):
+                        type2=i
+                        break
+                #print('Types du Pokémon:',type1,type2)
+                PV=datpok[data.split(pok)[1].find("PV")+3:data.split(pok)[1].find("Atq")]
+                Atq=datpok[data.split(pok)[1].find("Atq")+4:data.split(pok)[1].find("Déf")]
+                Def=datpok[data.split(pok)[1].find("Déf")+4:data.split(pok)[1].find("SpA")]
+                SpA=datpok[data.split(pok)[1].find("SpA")+4:data.split(pok)[1].find("SpD")]
+                SpD=datpok[data.split(pok)[1].find("SpD")+4:data.split(pok)[1].find("Vit")]
+                Vit=datpok[data.split(pok)[1].find("Vit")+4:data.split(pok)[1].find("BST")]
+                #print('Statistiques du Pokémon:',PV,Atq,Def,SpA,SpD,Vit)
+        
+                #traduction
+                #liste_trad = trad.split("\n")
+                #pokemon_trad = {}
+                #for element in liste_trad: #parcours de la liste
+                #    num,pokemon, pokemon_en, pokemon_fr = element.split("\t")
+                #    pokemon_trad[pokemon_en] = pokemon_fr
+                traduction  = po #[key for key, value in pokemon_trad.items() if value == pok][0]
+        
+                #EV les plus courant
+                max_value = max(smog['data'][traduction]['Spreads'].values())
+                max_key = [key for key, value in smog['data'][traduction]['Spreads'].items() if value == max_value]
+                #print('EV:', max_key)
+                ev = [int(x) for x in  max_key[0].split(':')[1].split('/')]
+        
+                StatPok=[2*int(PV)+ev[0]/4+141,2*int(Atq)+ev[1]/4+36,2*int(Def)+ev[2]/4+36,2*int(SpA)+ev[3]/4+36,2*int(SpD)+ev[4]/4+36,2*int(Vit)+ev[5]/4+36]
+                StatPok=[int(i) for i in StatPok]
+                #print('Statistiques du Pokémon:',StatPok)
+        
+        
+                #Les 4 attaques du pokemon
+        
+                # Trier les attaques par nombre d'utilisations décroissant
+                attaques_triees = sorted(smog['data'][traduction]['Moves'].items(), key=lambda x: x[1], reverse=True)
+                #print([i for i,j in attaques_triees[0:4]]) #[attaque for attaque, _ in donnees]
+        
+                #print(puis('dragondarts'))
+        
+                
+                #l_types=["Steel","Fighting","Dragon","Water","Electric","Fairy","Fire","Ice","Bug","Normal","Grass","Poison","Psychic","Rock","Ground","Ghost","Dark","Flying"]
+                for atta,sco in attaques_triees[0:4]:
+                    #m=moves
+                    #endroit=m.find(atta) #moves[endroit+len(move):endroit+len(move)+10]  Raises the user's Speed by 2;
+                    #if endroit==-1:
+                    #print(atta)
+                    #print(m[0:100])
+                    endroit=m.find(atta)
+                    #print(m[endroit:endroit+100])
+                    #print(endroit)
+                    #print(atta, m[endroit:endroit+len(move)+24+100].split("\n")[2])
+                    if "raisestheuser's" in m[endroit:endroit+24+100].split("\n")[2]:#raisestheuser's  Raises the user's
+                        #print(atta,m[endroit:endroit+len(move)+24+100].split("\n")[2],"attack" in m[endroit:endroit+len(move)+24+100].split("\n")[2])
+                        #print(atta," : ",m[endroit:endroit+len(move)+24+1000].split("\n")[2])#+24+len(move)
+                        #sp.atk attack
+                        if "attack" in m[endroit:endroit+24+100].split("\n")[2]:
+                            #print(atta)
+                            nombre = re.findall(r"\d+\.\d+|\d+", m[endroit:endroit+24+100].split("\n")[2])
+                            #print(atta,nombre)
+                            #print(atta,m[endroit:endroit+len(move)+24+100].split("\n")[2],nombre[1])
+                            StatPok[1]=StatPok[1]*float(nombre[1])                 
+                        if "sp.atk" in m[endroit:endroit+24+100].split("\n")[2]:
+                            nombre = re.findall(r"\d+\.\d+|\d+", m[endroit+2:endroit+24+100].split("\n")[2])
+                            StatPok[3]=StatPok[3]*float(nombre[1])  
+                            
+                att=max(StatPok[1],StatPok[3])
+                #print(att)
+                pui=[puis(i)[2] for i,j in attaques_triees[0:3]]
+                ty=[puis(i)[1] for i,j in attaques_triees[0:3]]
+        
+                time2=time()-time2
+                time3=time()
+                for i in range(3):
+                    if ty[i] in [type1,type2]:
+                        pui[i]=1.5*pui[i]
+                        
+                if att>(60*2+31+63)*1.5:
+                    if StatPok[1]>StatPok[3]:
+                        time4=time()
+                        sc=scoreSweeper(att,ty[0],pui[0],ty[1],pui[1],ty[2],pui[2])
+                        if sc>1:
+                            l+=[(pok,sc)]
+                        time4=time()-time4    
+                    else:
+                        sc=scoreSweeperSpa(att,ty[0],pui[0],ty[1],pui[1],ty[2],pui[2])
+                        if sc>1:
+                            l+=[(pok,sc)]
+            except:
+                a=1
+            
+            time3=time()-time3
+            
+        
+        #print("Temps : ",(time()-time5)/60)    
+        l= sorted(l, key=lambda x: x[1], reverse=True)    
+        return(l)
+    sweep1=sauvegarder("sweep")    
+    #st.write(sweep1) #dfcontre1={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
+    
+    noms = [item[0] for item in sweep1]
+    rescore = [item[1] for item in sweep1]
+    sweep1={"Nom":noms, "Score": rescore}
+    st.table(sweep1)
+
+
+
+print(list(smog['data'].keys())[0:10])
+
+
+if onglet_selectionne=="ACP":
+    
+    print("ACP " ,gen, tier )
+ 
+    
+    
+    poke=smog['data'].keys()
+    noms=list(poke)#liste des pok
+    
+    print(list(poke)[0:10])
+    
+    type1=[]
+    type2=[]
+    PV=[]
+    Atq=[]
+    Def=[]
+    SpA=[]
+    SpD=[]
+    Vit=[]
+    usa=[]
+    sup=[]
+    for i in noms[:]:
+        try:
+            pok=pokemon(tradFR(i))
+            type1+=[pok[0]]
+            type2+=[pok[1]]
+            PV+=[pok[2][0]]
+            Atq+=[pok[2][1]]
+            Def+=[pok[2][2]]
+            SpA+=[pok[2][3]]
+            SpD+=[pok[2][4]]
+            Vit+=[pok[2][5]]
+            usa+=[smog['data'][i]['usage']]
+        except:
+            sup+=[i]
+            
+    # Supprimez les noms de la liste
+    for ss in sup:
+        noms.remove(ss)   
+    
+    
+    
+    
+    import pandas as pd
+    import numpy as np
+    import matplotlib.pyplot as plt
+    
+    
+    
+    # Sélectionnez les variables quantitatives   "noms":noms,
+    variables_quantitatives =  pd.DataFrame({ "PV": PV, "Atq": Atq, "Def": Def, "SpA": SpA, "SpD": SpD, "Vit": Vit, "usa": usa})
+    
+    
+    
+    
+    # Standardisez les variables quantitatives
+    variables_standardisees = (variables_quantitatives - variables_quantitatives.mean()) / variables_quantitatives.std()
+    
+    # Calculez la matrice de covariance
+    matrice_covariance = variables_standardisees.cov()
+    
+    # Calculez les valeurs propres et vecteurs propres
+    valeurs_propres, vecteurs_propres = np.linalg.eig(matrice_covariance)
+    
+    # Triez les vecteurs propres par ordre décroissant des valeurs propres
+    indices_tries = np.argsort(valeurs_propres)[::-1]
+    valeurs_propres_triees = valeurs_propres[indices_tries]
+    vecteurs_propres_tries = vecteurs_propres[:, indices_tries]
+    
+    # Calculez les composantes principales
+    composantes_principales = np.dot(variables_standardisees, vecteurs_propres_tries)
+    
+    # Créez un DataFrame avec les composantes principales
+    acp_df = pd.DataFrame(data=composantes_principales, columns=[f"CP{i+1}" for i in range(len(variables_quantitatives.columns))])
+    
+    # Ajoutez la variable "noms" au DataFrame
+    acp_df["noms"] = noms
+    acp_df["type1"] = type1
+    
+    # Calculer le ratio de variance expliquée
+    ratio_variance_expliquee = valeurs_propres_triees / np.sum(valeurs_propres_triees)
+    
+    # Affichez le ratio de variance expliquée
+    for i, ratio in enumerate(ratio_variance_expliquee):
+        st.write(f"CP{i+1} : {ratio:.2f}")
+    
+    # Cercle des corrélations
+    plt.figure(figsize=(8, 8))
+    for i, nom_variable in enumerate(variables_quantitatives.columns):
+        plt.arrow(0, 0, vecteurs_propres_tries[i, 0], vecteurs_propres_tries[i, 1], head_width=0.05, head_length=0.025, fc='blue', ec='blue')
+        plt.text(vecteurs_propres_tries[i, 0] * 1.25, vecteurs_propres_tries[i, 1] * 1.25, nom_variable, color='blue')
+    
+    circle = plt.Circle((0, 0), 1, color='blue', fill=False)
+    plt.gca().add_patch(circle)        
+        
+    plt.xlim(-1, 1)
+    plt.ylim(-1, 1)
+    plt.xlabel("Composante Principale 1")
+    plt.ylabel("Composante Principale 2")
+    plt.title("Cercle des corrélations")
+    plt.grid(True)
+    #plt.show() 
+    # Afficher le graphique dans Streamlit
+    st.pyplot(plt)
+
+
+    #Graphique des individues
+
+
+    
+    # Calculer le ratio de variance expliquée
+    ratio_variance_expliquee = valeurs_propres_triees / np.sum(valeurs_propres_triees)
+    
+    # Créer un graphique des individus
+    plt.figure(figsize=(8, 6))
+    plt.scatter(composantes_principales[:, 0], composantes_principales[:, 1], c='blue', marker='o')
+    
+    # Ajouter les noms des individus
+    for i, nom in enumerate(acp_df["noms"]):
+        plt.annotate(tradFR(nom), (composantes_principales[i, 0], composantes_principales[i, 1]))
+    
+    # Afficher les axes
+    plt.axhline(y=0, color='gray', linestyle='--', linewidth=0.5)
+    plt.axvline(x=0, color='gray', linestyle='--', linewidth=0.5)
+    
+    # Ajouter les labels des axes
+    plt.xlabel("CP1")
+    plt.ylabel("CP2")
+    
+    # Titre du graphique
+    plt.title("Graphique des individus (ACP)")
+
+
+    st.pyplot(plt)
 
 
