@@ -3,12 +3,20 @@ body {
 }
 
 
+
+
 p {
   text-decoration-color: red;
+  /*color: red;*//*marche*/
 }
+
+/*td{
+  color: red;
+}*//*marche*/
 
 td:contains('Ice') {
   text-decoration-color: blue;
+  color: red;
 }
 
 p:contains('Ground') {
