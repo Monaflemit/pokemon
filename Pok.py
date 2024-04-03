@@ -36,7 +36,7 @@ st.session_state.tier = tier
 #traduction
 @st.cache
 def sttrad():
-    print("cc trad")
+    #print("cc trad")
     return("""0001	Bulbasaur	Bulbasaur	Bulbizarre
 0002	Ivysaur	Ivysaur	Herbizarre
 0003	Venusaur	Venusaur	Florizarre
@@ -16093,7 +16093,7 @@ def smogo():
         return()
     
 smog=sauvegarder("smogo") 
-print("smog : ",gen,tier)
+#print("smog : ",gen,tier)
 #print("s:",smog)
 #print("s:",list(smog['data'].keys())[0:10])
 
@@ -16317,7 +16317,7 @@ def destructionSpa(type1,att,att1,type2,att2,type3,att3,liste):
 #meilleurs types offensifs
 def score():
     "Score des types"
-    print("score")
+    #print("score")
     score=[]
     poke=smog['data'].keys()#i landorus
     l_types=["Steel","Fighting","Dragon","Water","Electric","Fairy","Fire","Ice","Bug","Normal","Grass","Poison","Psychic","Rock","Ground","Ghost","Dark","Flying"]
@@ -16355,6 +16355,7 @@ def score():
                 sc+=s
             except:
                 if i==l_types[0]:
+                    print("Problème dans score avec :")
                     print(j)
                     print(pok)
                     print(datpok)
@@ -16771,10 +16772,10 @@ if onglet_selectionne=="Scores de mon Sweeper":
     
     st.write("""Exemple :  \n 
 Je joue Braségali. \n 
-Il a une attaque de 339.  \n 
-Une fois que j'ai placé ma danse lames, mon attaque est de att=678.  \n 
-Je joue mon set avec close combat et flareblitz.  \n 
-Donc att1=120 att2=120 att3=0   type1=Fighting type2=Fire  \n 
+Il a une attaque de 372.  \n 
+Une fois que j'ai placé ma danse lames, mon attaque est de att=744.  \n 
+Je joue mon set avec close combat et flareblitz 2 stab d'une puissance de 120.  \n 
+Donc att1=180 att2=180 att3=0   type1=Fighting type2=Fire  \n 
 Le score du Pokémon est 4.3  \n 
 Cela veut dire qu'après une danse lames, Braségali peut One Shot en moyenne 4.3 Pokémon sur 6 de l'adversaire.  \n 
 Un contre à Braségali est Great Tusk qui est joué dans 25% des teams, il survit à une attaque de Braségali.""")
@@ -16873,7 +16874,7 @@ Cela veut dire qu'après une danse lames, Braségali peut One Shot en moyenne 4.
         l=[]
         m=moves.lower().replace(' ', '').replace('-', '')
         poke=smog['data'].keys() #Liste des pok
-        print(poke)
+        #print(poke)
         time1=time()-time1
         
         for po in list(poke):#[0:10]
@@ -16997,19 +16998,19 @@ Cela veut dire qu'après une danse lames, Braségali peut One Shot en moyenne 4.
 
 
 
-print(list(smog['data'].keys())[0:10])
+#print(list(smog['data'].keys())[0:10])
 
 
 if onglet_selectionne=="ACP":
     
-    print("ACP " ,gen, tier )
+    #print("ACP " ,gen, tier )
  
     
     
     poke=smog['data'].keys()
     noms=list(poke)#liste des pok
     
-    print(list(poke)[0:10])
+    #print(list(poke)[0:10])
     
     type1=[]
     type2=[]
