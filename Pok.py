@@ -16679,7 +16679,7 @@ if onglet_selectionne=="Score des types":
     
     
     # Lire le contenu du fichier script.js et stocker dans une variable
-    with open("script.js", "r") as js_file:
+    with open("script.js", "r") as js_file: 
         mon_script_js = js_file.read()
     #print(mon_script_js)
     
@@ -16847,6 +16847,324 @@ Un contre à Braségali est Great Tusk qui est joué dans 25% des teams, il surv
     except:
         st.write(f"Les contres de mon attaque spécial :")
 
+
+
+    if st.button("Recherche du meilleur TERA offensif physique"):
+        with st.spinner("Calcul en cours..."):
+            tera1sc=scoreSweeper(att, type1, att1, type2, att2, type3, att3)
+            st.session_state.tera1sc=tera1sc
+            
+            tera1sc1=scoreSweeper(att,type1,att1*1.5,type2,att2,type3,att3)
+            st.session_state.tera1sc1=tera1sc1
+            
+            tera1sc2=scoreSweeper(att,type1,att1,type2,att2*1.5,type3,att3)
+            st.session_state.tera1sc2=tera1sc2
+            
+            tera1sc3=scoreSweeper(att,type1,att1,type2,att2,type3,att3*1.5)
+            st.session_state.tera1sc3=tera1sc3
+            
+            st.session_state.tera1l=contre(att,type1,att1,type2,att2,type3,att3,pc=0.01)
+            
+            
+            max_score = max( tera1sc1, tera1sc2, tera1sc3)
+            if max_score == tera1sc1:
+                i=1
+                l2=contre(att,type1,att1*1.5,type2,att2,type3,att3,pc=0.01)
+            elif max_score == tera1sc2:
+                i=2
+                l2=contre(att,type1,att1,type2,att2*1.5,type3,att3,pc=0.01)
+            elif max_score == tera1sc3:
+                i=3
+                l2=contre(att,type1,att1,type2,att2,type3,att3*1.5,pc=0.01)       
+            
+            
+            
+            st.session_state.tera1l2=l2
+        
+        
+       
+    
+    try:
+        sc=st.session_state.tera1sc
+        sc1=st.session_state.tera1sc1
+        sc2=st.session_state.tera1sc2
+        sc3=st.session_state.tera1sc3
+        l=st.session_state.tera1l
+        l2=st.session_state.tera1l2
+        
+        
+        
+        st.write("Le score sans TERA : ",sc )
+        
+        max_score = max( sc1, sc2, sc3)
+        if max_score == sc1:
+            i=1
+            st.write("La meilleure TERA est ",type1," avec un score de : ",sc1)
+        elif max_score == sc2:
+            i=2
+            st.write("La meilleure TERA est ",type2," avec un score de : ",sc2)
+        elif max_score == sc3:
+            i=3
+            st.write("La meilleure TERA est ",type3," avec un score de : ",sc3)
+        
+
+
+        #st.write("Les contres sans TERA : ",l)
+        name=[item.rsplit(maxsplit=1)[0] for item in l]
+        noms = [tradFR(item) for item in name]
+        pourcentages = [int(item.rsplit(maxsplit=1)[1]) for item in l]
+        dfcontre1={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
+        st.write(f"Les contres de mon attaque physiques sans TERA : ", unsafe_allow_html=True)#**{dfcontre1}**        
+        st.table(dfcontre1)
+        
+        
+
+
+        #st.write("Les contres du TERA : ",l2)
+        name=[item.rsplit(maxsplit=12)[0] for item in l2]
+        noms = [tradFR(item) for item in name]
+        pourcentages = [int(item.rsplit(maxsplit=12)[1]) for item in l2]
+        dfcontre2={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
+        st.write(f"Les contres de mon attaque physiques avec TERA : ", unsafe_allow_html=True)#**{dfcontre1}**        
+        st.table(dfcontre2)
+        
+    except:
+        st.write(f"Le score sans TERA :  \n La meilleure TERA est  ???   avec un score de :  \n Les contres :  \n  Les contres du TERA : ")
+        
+        
+
+    if st.button("Recherche du meilleur TERA offensif spécial"):
+        with st.spinner("Calcul en cours..."):
+            tera1scSpa=scoreSweeperSpa(att, type1, att1, type2, att2, type3, att3)
+            st.session_state.tera1scSpa=tera1scSpa
+            
+            tera1sc1Spa=scoreSweeperSpa(att,type1,att1*1.5,type2,att2,type3,att3)
+            st.session_state.tera1sc1Spa=tera1sc1Spa
+            
+            tera1sc2Spa=scoreSweeperSpa(att,type1,att1,type2,att2*1.5,type3,att3)
+            st.session_state.tera1sc2Spa=tera1sc2Spa
+            
+            tera1sc3Spa=scoreSweeperSpa(att,type1,att1,type2,att2,type3,att3*1.5)
+            st.session_state.tera1sc3Spa=tera1sc3Spa
+            
+            st.session_state.tera1lSpa=contreSpa(att,type1,att1,type2,att2,type3,att3,pc=0.01)
+            
+            
+            max_score = max( tera1sc1Spa, tera1sc2Spa, tera1sc3Spa)
+            if max_score == tera1sc1Spa:
+                i=1
+                l2=contreSpa(att,type1,att1*1.5,type2,att2,type3,att3,pc=0.01)
+            elif max_score == tera1sc2Spa:
+                i=2
+                l2=contreSpa(att,type1,att1,type2,att2*1.5,type3,att3,pc=0.01)
+            elif max_score == tera1sc3Spa:
+                i=3
+                l2=contreSpa(att,type1,att1,type2,att2,type3,att3*1.5,pc=0.01)       
+            
+            
+            
+            st.session_state.tera1l2Spa=l2
+        
+        
+       
+    
+    try:
+        sc=st.session_state.tera1scSpa
+        sc1=st.session_state.tera1sc1Spa
+        sc2=st.session_state.tera1sc2Spa
+        sc3=st.session_state.tera1sc3Spa
+        l=st.session_state.tera1lSpa
+        l2=st.session_state.tera1l2Spa
+        
+        
+        
+        st.write("Le score sans TERA : ",sc )
+        
+        max_score = max( sc1, sc2, sc3)
+        if max_score == sc1:
+            i=1
+            st.write("La meilleure TERA est ",type1," avec un score de : ",sc1)
+        elif max_score == sc2:
+            i=2
+            st.write("La meilleure TERA est ",type2," avec un score de : ",sc2)
+        elif max_score == sc3:
+            i=3
+            st.write("La meilleure TERA est ",type3," avec un score de : ",sc3)
+        
+
+
+        #st.write("Les contres sans TERA : ",l)
+        name=[item.rsplit(maxsplit=1)[0] for item in l]
+        noms = [tradFR(item) for item in name]
+        pourcentages = [int(item.rsplit(maxsplit=1)[1]) for item in l]
+        dfcontre1={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
+        st.write(f"Les contres de mon attaque spécial sans TERA : ", unsafe_allow_html=True)#**{dfcontre1}**        
+        st.table(dfcontre1)
+        
+        
+
+
+        #st.write("Les contres du TERA : ",l2)
+        name=[item.rsplit(maxsplit=12)[0] for item in l2]
+        noms = [tradFR(item) for item in name]
+        pourcentages = [int(item.rsplit(maxsplit=12)[1]) for item in l2]
+        dfcontre2={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
+        st.write(f"Les contres de mon attaque physiques avec TERA : ", unsafe_allow_html=True)#**{dfcontre1}**        
+        st.table(dfcontre2)
+        
+    except:
+        st.write(f"Le score sans TERA :  \n La meilleure TERA est  ???   avec un score de :  \n Les contres :  \n  Les contres du TERA : ")
+
+
+
+    if st.button("Recherche de la meilleur TERA Explosion"):
+        with st.spinner("Calcul en cours..."):
+            l_types=["Steel","Fighting","Dragon","Water","Electric","Fairy","Fire","Ice","Bug","Normal","Grass","Poison","Psychic","Rock","Ground","Ghost","Dark","Flying"]
+            l_sc=[]
+            for i in l_types:
+                poke=smog['data'].keys() #Liste des pok  #"score de mon sweeper"
+                sc=0
+                for j in poke:
+                    try:
+                        max_liste=[max(x) for x in zip(degats2(type1,att,att1,j), degats2(type2,att,att2,j), degats2(type3,att,att3,j),degats2(i,att,120,j))]
+                        if len([x for x in max_liste if x >= 100]) >=1: #destruction
+                            sc+=smog['data'][j]['usage'] # usage
+                    except:
+                        a=1
+                l_sc+=[sc]
+
+            sc=scoreSweeper(att,type1,att1,type2,att2,type3,att3)    
+            
+            l=contre(att,type1,att1,type2,att2,type3,att3,pc=0.1)
+
+            name=[item.rsplit(maxsplit=1)[0] for item in l]
+            passe=[]
+            for i in name:
+                if degats2(l_types[l_sc.index(max(l_sc))],att,120,i)[0]>=100:
+                    passe+=[i]
+                    
+            st.session_state.teraexplo1sc=sc
+            st.session_state.teraexplo1l=l    
+            
+            st.session_state.teraexplo1l_sc=l_sc   
+            
+            st.session_state.teraexplo1passe=passe 
+            
+    try:
+        l_types=["Steel","Fighting","Dragon","Water","Electric","Fairy","Fire","Ice","Bug","Normal","Grass","Poison","Psychic","Rock","Ground","Ghost","Dark","Flying"]
+        sc=st.session_state.teraexplo1sc
+        l=st.session_state.teraexplo1l
+        l_sc  =st.session_state.teraexplo1l_sc
+        passe=st.session_state.teraexplo1passe
+        
+        st.write("Le score sans TERA : ",sc )    
+
+        #st.write("Les contres sans TERA : ",l)
+        name=[item.rsplit(maxsplit=1)[0] for item in l]
+        noms = [tradFR(item) for item in name]
+        pourcentages = [int(item.rsplit(maxsplit=1)[1]) for item in l]
+        dfcontre1={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
+        st.write(f"Les contres de mon attaque sans TERA : ", unsafe_allow_html=True)#**{dfcontre1}**        
+        st.table(dfcontre1)        
+        
+
+        st.write("La meilleure TERA Explosion est " ,l_types[l_sc.index(max(l_sc))]," avec un score de ",max(l_sc) )
+
+        #st.write("Cette TERA Explosion permet de passer : ",passe)
+        name=passe
+        noms = [tradFR(item) for item in name]
+        pourcentages = [ float(smog['data'][item]['usage'])*100 for item in passe]
+        dfcontre2={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
+        st.write(f"Les contres de mon attaque sans TERA : ", unsafe_allow_html=True)#**{dfcontre1}**        
+        st.table(dfcontre2)           
+        
+        
+    except:
+        st.write("Le score sans TERA : " )    
+
+        st.write("Les contres sans TERA : ")
+
+
+        st.write("La meilleure TERA Explosion est " ,"???"," avec un score de " )
+
+        st.write("Cette TERA Explosion permet de passer : ")
+        
+        
+        
+    if st.button("Recherche de la meilleur TERA Explosion Spécial"):
+        with st.spinner("Calcul en cours..."):
+            l_types=["Steel","Fighting","Dragon","Water","Electric","Fairy","Fire","Ice","Bug","Normal","Grass","Poison","Psychic","Rock","Ground","Ghost","Dark","Flying"]
+            l_sc=[]
+            for i in l_types:
+                poke=smog['data'].keys() #Liste des pok  #"score de mon sweeper"
+                sc=0
+                for j in poke:
+                    try:
+                        max_liste=[max(x) for x in zip(degats2Spa(type1,att,att1,j), degats2Spa(type2,att,att2,j), degats2Spa(type3,att,att3,j),degats2Spa(i,att,120,j))]
+                        if len([x for x in max_liste if x >= 100]) >=1: #destruction
+                            sc+=smog['data'][j]['usage'] # usage
+                    except:
+                        a=1
+                l_sc+=[sc]
+
+            sc=scoreSweeperSpa(att,type1,att1,type2,att2,type3,att3)    
+            
+            l=contreSpa(att,type1,att1,type2,att2,type3,att3,pc=0.1)
+
+            name=[item.rsplit(maxsplit=1)[0] for item in l]
+            passe=[]
+            for i in name:
+                if degats2Spa(l_types[l_sc.index(max(l_sc))],att,120,i)[0]>=100:
+                    passe+=[i]
+                    
+            st.session_state.teraexplo1scSpa=sc
+            st.session_state.teraexplo1lSpa=l    
+            
+            st.session_state.teraexplo1l_scSpa=l_sc   
+            
+            st.session_state.teraexplo1passeSpa=passe 
+            
+    try:
+        l_types=["Steel","Fighting","Dragon","Water","Electric","Fairy","Fire","Ice","Bug","Normal","Grass","Poison","Psychic","Rock","Ground","Ghost","Dark","Flying"]
+        sc=st.session_state.teraexplo1scSpa
+        l=st.session_state.teraexplo1lSpa
+        l_sc  =st.session_state.teraexplo1l_scSpa
+        passe=st.session_state.teraexplo1passeSpa
+        
+        st.write("Le score sans TERA : ",sc )    
+
+        #st.write("Les contres sans TERA : ",l)
+        name=[item.rsplit(maxsplit=1)[0] for item in l]
+        noms = [tradFR(item) for item in name]
+        pourcentages = [int(item.rsplit(maxsplit=1)[1]) for item in l]
+        dfcontre1={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
+        st.write(f"Les contres de mon attaque spécial sans TERA : ", unsafe_allow_html=True)#**{dfcontre1}**        
+        st.table(dfcontre1)        
+        
+
+        st.write("La meilleure TERA Explosion spécial est " ,l_types[l_sc.index(max(l_sc))]," avec un score de ",max(l_sc) )
+
+        #st.write("Cette TERA Explosion permet de passer : ",passe)
+        name=passe
+        noms = [tradFR(item) for item in name]
+        pourcentages = [ float(smog['data'][item]['usage'])*100 for item in passe]
+        dfcontre2={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
+        st.write(f"Les contres de mon attaque spécial sans TERA : ", unsafe_allow_html=True)#**{dfcontre1}**        
+        st.table(dfcontre2)           
+        
+        
+    except:
+        st.write("Le score sans TERA : " )    
+
+        st.write("Les contres sans TERA : ")
+
+
+        st.write("La meilleure TERA Explosion spécial est " ,"???"," avec un score de " )
+
+        st.write("Cette TERA Explosion permet de passer : ")
+                
+        
+        
 
 
 if onglet_selectionne=="Scores pour sweep des Pokémon":
@@ -17135,5 +17453,19 @@ if onglet_selectionne=="ACP":
 
 
     st.pyplot(plt)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
