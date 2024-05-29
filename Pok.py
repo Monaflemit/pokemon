@@ -17035,7 +17035,7 @@ Un contre à Braségali est Great Tusk qui est joué dans 25% des teams, il surv
 
             sc=scoreSweeper(att,type1,att1,type2,att2,type3,att3)    
             
-            l=contre(att,type1,att1,type2,att2,type3,att3,pc=0.1)
+            l=contre(att,type1,att1,type2,att2,type3,att3,pc=0.01)
 
             name=[item.rsplit(maxsplit=1)[0] for item in l]
             passe=[]
@@ -17065,7 +17065,7 @@ Un contre à Braségali est Great Tusk qui est joué dans 25% des teams, il surv
         pourcentages = [int(item.rsplit(maxsplit=1)[1]) for item in l]
         dfcontre1={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
         st.write(f"Les contres de mon attaque sans TERA : ", unsafe_allow_html=True)#**{dfcontre1}**        
-        st.table(dfcontre1)        
+        st.table(dfcontre1)         
         
 
         st.write("La meilleure TERA Explosion est " ,l_types[l_sc.index(max(l_sc))]," avec un score de ",max(l_sc) )
@@ -17075,7 +17075,7 @@ Un contre à Braségali est Great Tusk qui est joué dans 25% des teams, il surv
         noms = [tradFR(item) for item in name]
         pourcentages = [ float(smog['data'][item]['usage'])*100 for item in passe]
         dfcontre2={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
-        st.write(f"Les contres de mon attaque sans TERA : ", unsafe_allow_html=True)#**{dfcontre1}**        
+        st.write(f"Cette TERA Explosion permet de passer : ", unsafe_allow_html=True)#**{dfcontre1}**        
         st.table(dfcontre2)           
         
         
@@ -17109,7 +17109,7 @@ Un contre à Braségali est Great Tusk qui est joué dans 25% des teams, il surv
 
             sc=scoreSweeperSpa(att,type1,att1,type2,att2,type3,att3)    
             
-            l=contreSpa(att,type1,att1,type2,att2,type3,att3,pc=0.1)
+            l=contreSpa(att,type1,att1,type2,att2,type3,att3,pc=0.01)
 
             name=[item.rsplit(maxsplit=1)[0] for item in l]
             passe=[]
@@ -17149,7 +17149,7 @@ Un contre à Braségali est Great Tusk qui est joué dans 25% des teams, il surv
         noms = [tradFR(item) for item in name]
         pourcentages = [ float(smog['data'][item]['usage'])*100 for item in passe]
         dfcontre2={"Name": name,"Nom":noms, "Pourcentage": pourcentages}
-        st.write(f"Les contres de mon attaque spécial sans TERA : ", unsafe_allow_html=True)#**{dfcontre1}**        
+        st.write(f"Cette TERA Explosion permet de passer : ", unsafe_allow_html=True)#**{dfcontre1}**        
         st.table(dfcontre2)           
         
         
@@ -17174,8 +17174,8 @@ if onglet_selectionne=="Scores pour sweep des Pokémon":
     
     
     st.write("""Le set le plus joué de Braségali est : \n
-EV: ['Adamant:0/252/0/0/4/252'] \n
-Statistiques du Pokémon: [301, 339, 176, 256, 177, 259] \n 
+EV : ['Adamant:0/252/0/0/4/252'] \n
+Statistiques du Pokémon : [301, 339, 176, 256, 177, 259] \n 
 Moves : ['closecombat', 'swordsdance', 'flareblitz', 'protect']  \n 
 Le score du Pokémon est 4.3  \n
 Cela veut dire qu'après une danse lames, Braségali peut One Shot en moyenne 4.3 Pokémon sur 6 de l'adversaire.""") 
