@@ -5,7 +5,7 @@ from time import time,strftime
 #cd C:\Users\quewa\Documents\Pokémon\9
 import streamlit as st #streamlit run Pok.py
 
-#st.set_option('deprecation.showPyplotGlobalUse', False)
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 # Charger le contenu du fichier CSS
@@ -17017,7 +17017,7 @@ Un contre à Braségali est Great Tusk qui est joué dans 25% des teams, il surv
 
 
 
-    if st.button("Recherche de la meilleur TERA Explosion"):
+    if st.button("Recherche de la meilleur TERA Explosion physique"):
         with st.spinner("Calcul en cours..."):
             l_types=["Steel","Fighting","Dragon","Water","Electric","Fairy","Fire","Ice","Bug","Normal","Grass","Poison","Psychic","Rock","Ground","Ghost","Dark","Flying"]
             l_sc=[]
@@ -17312,7 +17312,99 @@ Cela veut dire qu'après une danse lames, Braségali peut One Shot en moyenne 4.
     noms = [item[0] for item in sweep1]
     rescore = [item[1] for item in sweep1]
     sweep1={"Nom":noms, "Score": rescore}
+    
     st.table(sweep1)
+
+    # Interaction : Sélectionnez un nom
+    selected_name = st.selectbox("Avoir des informations sur le set le plus joué de :", noms)
+
+    # Texte à afficher selon le nom sélectionné
+    if selected_name:
+        txt = f"Set le plus joué de {selected_name} : \n"
+        
+        
+        # set le plus joué du pokémon
+        pok=selected_name #fr
+        txt+=str(pok)+"\n"
+        
+        datpok=data.split(pok)[1]
+        l_types=["Steel","Fighting","Dragon","Water","Electric","Fairy","Fire","Ice","Bug","Normal","Grass","Poison","Psychic","Rock","Ground","Ghost","Dark","Flying"]
+        type1=""
+        c=0
+        while type1=="":
+            c+=1
+            datpok=data.split(pok)[c]
+            for i in l_types:
+                if datpok.startswith(i):
+                    type1=i
+                    break
+        type2=""
+        for i in l_types:
+            if datpok[len(type1):].startswith(i):
+                type2=i
+                break
+        txt+=f'Types du Pokémon : {type1} {type2}'+"\n"
+        PV=datpok[data.split(pok)[c].find("PV")+3:data.split(pok)[c].find("Atq")]
+        Atq=datpok[data.split(pok)[c].find("Atq")+4:data.split(pok)[c].find("Déf")]
+        Def=datpok[data.split(pok)[c].find("Déf")+4:data.split(pok)[c].find("SpA")]
+        SpA=datpok[data.split(pok)[c].find("SpA")+4:data.split(pok)[c].find("SpD")]
+        SpD=datpok[data.split(pok)[c].find("SpD")+4:data.split(pok)[c].find("Vit")]
+        Vit=datpok[data.split(pok)[c].find("Vit")+4:data.split(pok)[c].find("BST")]
+        txt+=f'Statistiques du Pokémon : {PV} {Atq} {Def} {SpA} {SpD} {Vit}'+"\n"
+        
+        #traduction
+        #liste_trad = trad.split("\n")
+        #pokemon_trad = {}
+        #for element in liste_trad: #parcours de la liste
+        #    num,pokemon, pokemon_en, pokemon_fr = element.split("\t")
+        #    pokemon_trad[pokemon_en] = pokemon_fr
+        traduction  = tradEN(pok) #[key for key, value in pokemon_trad.items() if value == pok][0]
+        
+        #EV les plus courant
+        max_value = max(smog['data'][traduction]['Spreads'].values())
+        max_key = [key for key, value in smog['data'][traduction]['Spreads'].items() if value == max_value]
+        txt+=f'EV : {max_key}'+"\n"
+        ev = [int(x) for x in  max_key[0].split(':')[1].split('/')]
+        
+        StatPok=[2*int(PV)+ev[0]/4+141,2*int(Atq)+ev[1]/4+36,2*int(Def)+ev[2]/4+36,2*int(SpA)+ev[3]/4+36,2*int(SpD)+ev[4]/4+36,2*int(Vit)+ev[5]/4+36]
+        StatPok=[int(i) for i in StatPok]
+        txt+=f'Statistiques du Pokémon : {StatPok}'+"\n"
+        
+        
+        #Les 4 attaques du pokemon
+        
+        # Trier les attaques par nombre d'utilisations décroissant
+        attaques_triees = sorted(smog['data'][traduction]['Moves'].items(), key=lambda x: x[1], reverse=True)
+        txt+=str([i for i,j in attaques_triees[0:4]])+"\n" #[attaque for attaque, _ in donnees]
+        m=moves.lower().replace(' ', '').replace('-', '')
+        for atta,sco in attaques_triees[0:4]:
+            endroit=m.find(atta)
+            if "raisestheuser's" in m[endroit:endroit+24+100].split("\n")[2]:#raisestheuser's  Raises the user's
+                if "attack" in m[endroit:endroit+24+100].split("\n")[2]:
+                    nombre = re.findall(r"\d+\.\d+|\d+", m[endroit:endroit+24+100].split("\n")[2])
+                    StatPok[1]=StatPok[1]*float(nombre[1])                 
+                if "sp.atk" in m[endroit:endroit+24+100].split("\n")[2]:
+                    nombre = re.findall(r"\d+\.\d+|\d+", m[endroit+2:endroit+24+100].split("\n")[2])
+                    StatPok[3]=StatPok[3]*float(nombre[1])  
+        
+        att=max(StatPok[1],StatPok[3])
+        
+        pui=[puis(i)[2] for i,j in attaques_triees[0:4]]
+        ty=[puis(i)[1] for i,j in attaques_triees[0:4]]
+        
+        txt+=str(ty)+"\n"
+        txt+=str(pui)+"\n"
+        
+        for i in range(3):
+            if ty[i] in [type1,type2]:
+                pui[i]=1.5*pui[i]
+        
+        if StatPok[1]>StatPok[3]:
+            txt+=f"Score : {scoreSweeper(att,ty[0],pui[0],ty[1],pui[1],ty[2],pui[2])}"+"\n"
+        else:
+            txt+=f"Score : {scoreSweeperSpa(att,ty[0],pui[0],ty[1],pui[1],ty[2],pui[2])}"+"\n"
+        
+        st.text(txt)
 
 
 
@@ -17453,19 +17545,3 @@ if onglet_selectionne=="ACP":
 
 
     st.pyplot(plt)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
