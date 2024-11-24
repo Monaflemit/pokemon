@@ -5,7 +5,7 @@ from time import time,strftime
 #cd C:\Users\quewa\Documents\Pokémon\9
 import streamlit as st #streamlit run Pok.py
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
+#st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 # Charger le contenu du fichier CSS
